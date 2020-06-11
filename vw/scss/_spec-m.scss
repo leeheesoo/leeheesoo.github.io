@@ -1,0 +1,213 @@
+// heeok / 2019-02-11 / 제원정보 / m
+// launching, studio, showroom 사이트 에서 사용
+.pop-spec {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+
+  .btn__close {
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    width: 50px;
+    height: 50px;
+    background: url($image-url+'btn-slide-close.png') no-repeat;
+    background-size: cover;
+    z-index: 10;
+    font-size: 0;
+
+  }
+
+  .popup-inner {
+    background: #fff;
+    opacity: 1;
+    width: inherit;
+    height: inherit;
+  }
+}
+
+.spec {
+
+
+  &-header {
+    padding-top: 70px;
+    color: #fff;
+    font-family: 'VWHeadWeb-Bold', sans-serif;
+
+
+    h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 36px;
+    }
+
+    .placeholder {
+      font-size: 30px !important;
+      color: #121111 !important;
+      background: url($image-url+'spec_arrow.png') #fff !important;
+    }
+
+    .spec-names {
+      width: 100%;
+      height: 68px;
+      line-height: 68px;
+      font-size: 30px;
+      text-align-last: center;
+      font-family: 'VWHeadWeb-Bold', sans-serif;
+      border: none;
+      overflow: hidden;
+      background: url($image-url+'spec_arrow.png') #fff;
+      opacity: 0;
+    }
+  }
+
+  &-wrap {
+    overflow-y: auto;
+    width: 100%;
+    height: calc(100% - 215px);
+  }
+
+  &-body {
+    // display: none;
+    margin: 0 auto;
+    width: 100%;
+
+    &.on {
+      display: block;
+    }
+  }
+
+  &-section {
+    padding: 20px 40px;
+    font-family: 'NotoSans-Light', sans-serif;
+    color: #2f2f2f;
+    line-height: 1.2;
+    font-size: 19px;
+
+    .spec-title {
+      margin: 50px 0 20px 0;
+      font-size: 24px;
+    }
+
+    table {
+      width: 100%;
+
+      tr {
+        position: relative;
+        border-bottom: 1px solid #222;
+      }
+
+      tr:first-child {
+        border-top: 1px solid #222;
+      }
+
+      td {
+        padding: 12px 0;
+        vertical-align: middle;
+        word-wrap: break-word;
+        word-break: keep-all;
+
+        &.spec-opt {
+          &-title {
+            text-align: left;
+            float: left;
+          }
+
+          &-desc {
+            text-align: right;
+            right: 0;
+            vertical-align: middle;
+            color: #999;
+
+            &.txtCenter {
+              padding-right: 8px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &-caption {
+    margin-top: 38px;
+    word-wrap: break-word;
+    word-break: keep-all;
+  }
+}
+
+
+
+$color-on: #0199d8;
+$color-font: #555;
+$color-bg: #fff;
+
+.spec-theme-light {
+  color: #6f6f6f;
+
+  .popup {
+    background: $color-bg;
+    background: #fff;
+
+    .btn__close {
+      width: 44px;
+      height: 44px;
+      background: url('https://vwkr-arteon.s3.amazonaws.com/static/shared/btn-close-black.png') center center no-repeat;
+    }
+  }
+
+  .pop-spec .popup-inner {
+    background: $color-bg;
+  }
+
+  .spec-wrap {
+    background: $color-bg;
+  }
+
+  .spec-header {
+    color: #121111;
+
+    .spec-names span {
+      position: relative;
+      color: $color-font;
+
+      &.on {
+        color: $color-on;
+      }
+
+      &:after {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        bottom: 38px;
+
+        border: solid $color-on;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 5px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+
+        background-image: none;
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+
+  .spec-section {
+    .spec-title {
+      color: #1e1f21;
+    }
+
+    table tr {
+      border-bottom: 1px solid #bbc2c5;
+
+      &:first-child {
+        border-top: 1px solid #bbc2c5;
+      }
+    }
+  }
+}

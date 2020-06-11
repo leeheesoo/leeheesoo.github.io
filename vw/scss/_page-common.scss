@@ -1,0 +1,41 @@
+.notosans {
+  font-family: 'NotoKR-Regular';
+}
+
+.vwbold {
+  font-family: 'VWHeadWeb-Bold', sans-serif, Arial;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.swiper-slide {
+  video {
+    visibility: hidden;
+  }
+
+  &-active {
+    video {
+      visibility: visible !important;
+    }
+
+  }
+}
+
+// promotion,가격 hide
+.promotion {
+  display: none;
+}
+
+.price {
+  visibility: hidden;
+}
+
+header {
+  li {
+    &:nth-child(9) {
+      display: none
+    }
+  }
+}

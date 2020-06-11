@@ -1,0 +1,48 @@
+$loc-font: 'https://vwkr-touareg.s3.amazonaws.com/static/fonts/';
+@import url('https://use.typekit.net/fgr0akh.css');
+
+$font-name: 'VWHeadWeb-Bold',
+'VWHeadWeb-Regular',
+'VWTextWeb-Bold',
+'VWTextWeb-Regular';
+
+@mixin font-face($font, $weight: normal) {
+  font-family: #{$font};
+  src: url(#{$loc-font}#{$font}.eot);
+  src: url(#{$loc-font}#{$font}.eot?iefix) format('embedded-opentype'),
+  url(#{$loc-font}#{$font}.woff) format('woff'),
+  url(#{$loc-font}#{$font}.ttf) format('truetype'),
+  url(#{$loc-font}#{$font}.svg#webfont) format('svg');
+  font-weight: $weight;
+  font-style: normal;
+}
+
+@each $name in $font-name {
+  @font-face {
+    @include font-face($name, if($name=='NotoKR-Bold', 700, normal));
+  }
+}
+
+@font-face {
+  font-family: 'NotoKR-Regular';
+  font-style: normal;
+  src: url(#{$loc-font}NotoSansKR-Regular.eot),
+  url(#{$loc-font}NotoSansKR-Regular.eot?#iefix) format('embedded-opentype'),
+  url(#{$loc-font}NotoSansKR-Regular.woff2) format('woff2'),
+  url(#{$loc-font}NotoSansKR-Regular.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'NotoKR-Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url(#{$loc-font}NotoSansKR-Bold.eot),
+  url(#{$loc-font}NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'),
+  url(#{$loc-font}NotoSansKR-Bold.woff2) format('woff2'),
+  url(#{$loc-font}NotoSansKR-Bold.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'NotoSans-Light';
+  src: url(#{$loc-font}NotoSansCJKkr-Light.otf);
+}

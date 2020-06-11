@@ -1,0 +1,47 @@
+@charset 'utf-8';
+
+// font
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&subset=korean');
+
+//#########################################
+
+// common
+
+//#########################################
+@import '../../dev-common/scss/vendor/normalize';
+@import '../../dev-common/scss/mixin/background';
+@import '../../dev-common/scss/mixin/prefix';
+@import '../../dev-common/scss/util/a11y-hidden';
+
+//#########################################
+
+// local setting
+
+//#########################################
+@import 'mixin';
+@import 'reset';
+
+//#########################################
+
+// pages
+
+//#########################################
+@import 'variable';
+@import 'font';
+
+@import 'page-common';
+@import 'page-m';
+
+@import 'spec-m';
+@import 'popup';
+@import 'effect';
+
+//#########################################
+
+// shared
+
+//#########################################
+@import '../tech/scss/tech-m';
+
+@import '../consultation/scss/_consultation-m';
+@import '../consultation/scss/_theme-light-m';
