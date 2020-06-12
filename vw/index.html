@@ -26,7 +26,7 @@
   <div id="wrap" class="wrap pc" v-cloak>
     <header>
       <div class="inner">
-        <h1 @click="goSection('kv')"><img src="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/logo.png" alt="" /></h1>
+        <h1 @click="goSection('kv')"><img src="images/pc/logo.png" alt="" /></h1>
         <ul class="nav_main">
           <li v-for="nav in navList" :key="nav.name" @click="goSection(nav.goId)" :class="{ on: currentSection == nav.goId }">
             {{nav.name}}
@@ -64,7 +64,7 @@
         <button @click="toggleTvc()" class="btns btn__tvc-close">tvc 메뉴 여닫기</button>
         <div class="tvc-box">
           <button type="button" class="tvc__list" @click="showTvc()">
-            <img class="tvc__bg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/kv_video.jpg" alt="">
+            <img class="tvc__bg" src="images/pc/kv_video.jpg" alt="">
             <span class="tvc__desc">The new Touareg.<br>Full ver.</span>
           </button>
         </div>
@@ -105,7 +105,7 @@
 
         <div class="exterior_video">
           <div class="cover" id="exteriorCover" v-on:click.prevent="playVideo($event)"></div>
-          <video controls class="coverVideo" poster="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/exterior_video.jpg" id="exteriorMov" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_EXTERIOR.mp4"></video>
+          <video controls class="coverVideo" poster="images/pc/exterior_video.jpg" id="exteriorMov" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_EXTERIOR.mp4"></video>
         </div>
         <div class="lookContent left">
           <!-- 설명 -->
@@ -117,7 +117,7 @@
           <ul class="lookContent_list">
             <li v-for="(exterior,idx) in exteriorData" :key="exterior.id" :class="{on : exterior.isOn}" @mouseover="listOn(exterior,exteriorData)" @click="openPop('exterior')">
               <div class="lookContent_imageWrap">
-                <img class="lookContent_img" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/' + exterior.image" alt="">
+                <img class="lookContent_img" :src="'images/pc/' + exterior.image" alt="">
               </div>
               <!-- <p class="listTitle listTitle_2line" v-if="idx == 2"><span>Easy Open and Electronic</span><span class="text_padding">Closing Trunk.</span><i class="icon_arrow"></i></p> -->
               <p class="listTitle"><span class="text_padding" v-html="exterior.title"></span><i class="icon_arrow"></i></p>
@@ -148,7 +148,7 @@
                   <p class="slide_txt-small" v-html="slide.txt"></p>
                 </div>
 
-                <img :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/' + slide.image" alt="" />
+                <img :src="'images/pc/' + slide.image" alt="" />
 
               </li>
             </ul>
@@ -171,14 +171,14 @@
 
         <div class="interior_videoWrap">
           <div class="cover" id="interiorCover" v-on:click.prevent="playVideo($event)"></div>
-          <video class="coverVideo" id="interiorMov" poster="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/interior_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_INTERIOR.mp4" controls></video>
+          <video class="coverVideo" id="interiorMov" poster="images/pc/interior_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_INTERIOR.mp4" controls></video>
         </div>
 
         <div class="lookContent right">
           <ul class="lookContent_list">
             <li v-for="interior in interiorData" :key="interior.id" :class="{on:interior.isOn}" @mouseover="listOn(interior,interiorData)" @click="openPop('interior')">
               <div class="lookContent_imageWrap">
-                <img class="lookContent_img" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/' + interior.image" alt="">
+                <img class="lookContent_img" :src="'images/pc/' + interior.image" alt="">
               </div>
               <p class="listTitle"><span class="text_padding" v-html="interior.title"></span><i class="icon_arrow"></i></p>
             </li>
@@ -212,10 +212,10 @@
                     <h4 v-html="slide.title"></h4>
                     <p class="slide_txt-small" v-html="slide.txt"></p>
                   </div>
-                  <img v-if="!slide.video" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/' + slide.image" alt="" />
+                  <img v-if="!slide.video" :src="'images/pc/' + slide.image" alt="" />
 
                   <div v-show="slide.video" class="cover" id="interiorPopCover" v-on:click.prevent="playVideo($event)"></div>
-                  <video v-if="slide.video" class="coverVideo" id="interiorPopMov" poster="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/interior_s_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
+                  <video v-if="slide.video" class="coverVideo" id="interiorPopMov" poster="images/pc/interior_s_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
 
 
                 </li>
@@ -230,7 +230,7 @@
               <div class="swiper-button-next"></div>
             </div>
 
-            <!-- <span class="icon_hand" v-if="interiorShow == 0"><img src="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/Icon_drag.png" alt=""></span> -->
+            <!-- <span class="icon_hand" v-if="interiorShow == 0"><img src="images/pc/Icon_drag.png" alt=""></span> -->
           </div>
         </div>
       </div>
@@ -254,7 +254,7 @@
           <div class="tabWrap_show">
             <div class="driving_videoWrap">
               <div class="cover" id="drivingCover" v-on:click.prevent="playVideo($event)"></div>
-              <video class="coverVideo" :poster="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/'+drivingData[drivingShow].coverImg" id="drivingMov" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/video/driving/'+drivingData[drivingShow].video"></video>
+              <video class="coverVideo" :poster="'images/pc/'+drivingData[drivingShow].coverImg" id="drivingMov" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/video/driving/'+drivingData[drivingShow].video"></video>
             </div>
 
             <div class="tabWrap_explain">
@@ -292,7 +292,7 @@
 
           <div class="tabWrap_show technology">
             <!-- 1, 2, 7번만 이미지 -->
-            <img v-show="technologyShow === 0 || technologyShow === 1 || technologyShow === 6" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/technology'+(technologyShow+1)+'.jpg'" alt="" />
+            <img v-show="technologyShow === 0 || technologyShow === 1 || technologyShow === 6" :src="'images/pc/technology'+(technologyShow+1)+'.jpg'" alt="" />
             <div class="tabWrap_animation" v-show="technologyShow !== 0 &&technologyShow !== 1 && technologyShow !== 6">
               <div class="tabWrap_animationCover" :class="'tabWrap_animationCover' + (technologyShow+1)" @click="animation(technologyShow)">
                 <button type="button" class="btn__playHover"></button>
@@ -338,7 +338,7 @@
             <div class="swiper-container gallerySlide">
               <ul class="swiper-wrapper">
                 <!-- Slides -->
-                <li class="swiper-slide" v-for="idx in 8"><img :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/pop_gallery'+idx+'.jpg'" alt="" /></li>
+                <li class="swiper-slide" v-for="idx in 8"><img :src="'images/pc/pop_gallery'+idx+'.jpg'" alt="" /></li>
               </ul>
 
               <div class="swiper-pagination"></div>
@@ -369,7 +369,7 @@
         <div class="swiper-container trim-slide">
           <ul class="swiper-wrapper">
             <li class="swiper-slide" v-for="trimImg in trimData[trimShow].images">
-              <img :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/trim/'+trimImg" alt="">
+              <img :src="'images/pc/trim/'+trimImg" alt="">
             </li>
           </ul>
 
