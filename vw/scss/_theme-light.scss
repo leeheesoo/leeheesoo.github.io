@@ -1,0 +1,277 @@
+.theme-light {
+  color: #1d1f21;
+
+  .consultation {
+    color: #1d1f21;
+
+    form {
+      color: #555;
+    }
+
+    .title1 {
+      margin: 0;
+      width: 100%;
+      height: 99px;
+      background: url($image-url+'/apply-title.png') top center no-repeat;
+    }
+
+    //---
+    .step1 {
+      margin-top: 59px;
+
+      .info {
+        dl {
+          color: #1d1f21;
+        }
+
+        dd {
+          color: #676767;
+        }
+      }
+    }
+
+    //---
+    .step2 {
+
+      input[type='text'],
+      input[type='tel'] {
+        border: 1px solid #999;
+        background: #fff;
+      }
+
+      select {
+        color: #555;
+        border: 1px solid #999;
+        background-color: #fff;
+      }
+
+      .term-list li .tit em {
+        color: inherit;
+      }
+
+      dl {
+        color: #555;
+        border-top: 1px solid #eee;
+
+        &:last-child {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+
+    .step2 .phone div button {
+      background: #999999;
+      font-size: 16px;
+      color: #fff;
+      font-family: 'NotoKR-Regular';
+    }
+
+    // 개인정보 동의 내용들
+    .term {
+      font-size: 14px;
+      line-height: 1.4;
+      color: #6f6f6f;
+
+      &__title {
+        margin-top: 10px;
+      }
+
+      &__content-wrap {
+        margin-top: 20px;
+        font-size: 13px;
+        background-color: #f3f5f6;
+      }
+
+      &__content {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .content__ele {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        // border: 1px solid #e0e1e3;
+      }
+
+      .content {
+        &__title {
+          width: 30%;
+          padding-left: 44px;
+        }
+
+        &__item {
+          padding-right: 20px;
+          width: 70%;
+        }
+      }
+    }
+
+    .term.term-1 {
+      .term {
+        &__content-wrap {}
+
+        &__content {
+          height: 96px;
+          border: 1px solid #e0e1e3;
+
+          &:not(:last-child) {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      .content__ele {
+        border: none;
+      }
+
+      .content {
+        &__title {}
+
+        &__item {}
+      }
+    }
+
+    // end || term-1
+
+    .term.term-2,
+    .term.term-5 {
+      .term {
+        &__content-wrap {
+          display: flex;
+        }
+
+        &__content {
+          padding: 0;
+          flex-direction: column;
+          justify-content: flex-start;
+
+          &:nth-child(2) {
+            width: 55%;
+          }
+
+          border: 1px solid #e0e1e3;
+
+          &:not(:last-child) {
+            border-right: 0;
+          }
+        }
+      }
+
+      .content__ele {
+        text-align: center;
+        padding: 0;
+        width: 100%;
+        width: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .content {
+        &__title {
+          width: 100%;
+          height: 52px;
+          border-bottom: 1px solid #e0e1e3;
+        }
+
+        &__item {
+          flex-direction: column;
+          width: 100%;
+          height: 210px;
+          padding: 15px;
+        }
+
+        &__text {
+          width: inherit;
+        }
+      }
+    }
+
+    // end || term-2
+
+    .term.term-4 {
+      .term {
+
+        // &__content-wrap {
+        //   display: flex;
+        // }
+        &__content {
+          padding: 0;
+          height: 74px;
+
+          border: 1px solid #e0e1e3;
+
+          &:not(:last-child) {
+            border-bottom: 0;
+          }
+
+          &:first-child {
+            height: 52px;
+          }
+        }
+      }
+
+      .content__ele {
+        display: flex;
+        align-items: center;
+        padding: 0;
+      }
+
+      .content {
+        &__title {
+          width: 240px;
+
+          text-align: center;
+          justify-content: center;
+          border-right: 1px solid #e0e1e3;
+        }
+
+        &__item {
+          width: 80%;
+          padding-left: 40px;
+          padding-right: 40px;
+
+          &:first-child {
+            text-align: center;
+          }
+        }
+      }
+    }
+
+    // end || term-4
+    .apply__notice {
+      font-family: 'NotoSans-Light';
+      display: inline-block;
+      font-size: 14px;
+      color: #999;
+      padding: 0 0 0 15px;
+      line-height: 20px;
+    }
+  }
+
+  // emd || .consultation
+
+  .term-list .term {
+    padding-right: 0;
+  }
+
+  .term-list li .tit em {
+    color: #555;
+  }
+
+  .term-list li .tit button {
+    color: #6f6f6f;
+  }
+
+  .term-list li .tit {
+    border-bottom: 1px solid #e0e1e3;
+  }
+
+  .under {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}

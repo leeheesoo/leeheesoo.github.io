@@ -1,0 +1,550 @@
+@charset 'utf-8';
+
+button,
+[class^='btn__'] {
+  font-size: 0;
+  @include background('btns-testdriving.png');
+}
+
+.consultation {
+  padding-bottom: 100px;
+  color: #1d1f21;
+
+  .section-inner {
+    width: 1240px;
+    margin: 0 auto;
+  }
+
+  h2.tit {
+    margin: 100px 0 46px 0;
+    text-align: center;
+  }
+
+  // 색상 선택
+  $colors: (#f2f2f2, #795843, #6b6b6b, #ccced0, #033770, #000);
+
+  #color7 {
+    background-color: #000;
+  }
+
+  .btn__color {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+
+    @for $i from 1 through 6 {
+      &#{$i} {
+        background-color: nth($colors, $i);
+      }
+    }
+
+    &.is-active {
+      outline: 2px solid #03b1ec;
+      box-sizing: content-box;
+    }
+  }
+
+  .step {
+    position: relative;
+    margin-top: -1px;
+
+    .btn__step-more {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      background-position: 0 -380px;
+      font-size: 0;
+    }
+
+    .step-inner {
+      display: none;
+    }
+
+    .tit-step {
+      height: 62px;
+      padding: 0 20px;
+      border-top: 1px solid #666;
+      font-size: 22px;
+      line-height: 60px;
+    }
+
+    &:last-child .tit-step {
+      border-bottom: 1px solid #666;
+    }
+
+    &.is-show {
+      .btn__step-more {
+        background-position: -40px -380px;
+      }
+
+      .step-inner {
+        display: block;
+      }
+
+      .tit-step {
+        border-bottom: 1px solid #444;
+        cursor: pointer;
+      }
+    }
+
+    label {
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .options {
+      position: relative;
+      display: inline-block;
+      margin: 10px 27px 20px 0;
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        opacity: 0.001;
+
+        &:checked+.btn__vr-input {
+          background-position-x: -190px;
+        }
+      }
+
+      .btn__vr-input {
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+        background-position: -160px -380px;
+      }
+
+      .options-txt {
+        float: left;
+      }
+    }
+
+    .btn__consultation-next {
+      display: block;
+      width: 185px;
+      height: 60px;
+      margin: 47px auto 0;
+      // background-position: -246px -164px;
+      background-image: none;
+      border: 2px solid #001d50;
+      border-radius: 30px;
+      font-size: 16px;
+      color: #001d50;
+    }
+
+    .btn__consultation-confirm {
+      display: block;
+      width: 200px;
+      height: 62px;
+      margin: 40px auto 0;
+      // background-position: -345px -275px;
+      background-image: none;
+      background: #001d50;
+      border-radius: 30px;
+      font-size: 16px;
+      color: #fff;
+    }
+  }
+
+  // step1
+  .step1 {
+    .step-inner {
+      position: relative;
+      margin: 45px 40px 50px 0px;
+    }
+
+    .name {
+      font-size: 44px;
+      margin: 78px 0 172px 16px;
+
+      strong {
+        font-family: 'VWHeadWeb-Bold', 'NotoKR-Bold', sans-serif, Arial;
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 30px;
+      }
+    }
+
+    .btn-box {
+      position: absolute;
+      top: 199px;
+      left: 17px;
+      z-index: 5;
+
+      .color-name {
+        margin-bottom: 19px;
+        font-size: 20px;
+        font-family: 'VWHeadWeb-Bold', sans-serif, Arial;
+      }
+
+      .btn__color1 {
+        margin-left: 0;
+      }
+    }
+
+    .car-img {
+      position: absolute;
+      top: 57px;
+      right: -110px;
+      width: 770px;
+
+      >img {
+        width: 100%;
+      }
+    }
+
+    .btn__tab {
+      display: inline-block;
+      margin-right: 60px;
+      font-size: 24px;
+      font-family: 'VWHeadWeb-Bold', sans-serif, Arial;
+      color: #999;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.is-active {
+        color: #00529e;
+
+        span {
+          padding-bottom: 5px;
+          color: #0057a7;
+          border-bottom: 2px solid #0057a7;
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+
+    .price {
+      height: 24px;
+      margin-left: 20px;
+      font-size: 16px;
+      line-height: 24px;
+      color: #494949;
+      font-weight: bold;
+    }
+
+    .info {
+      margin-top: 85px;
+      font-size: 14px;
+      line-height: 24px;
+      overflow: hidden;
+
+      dl {
+        float: left;
+        width: 146px;
+        height: 90px;
+        padding: 0 15px;
+        border-right: 1px solid #f2f2f2;
+        word-break: keep-all;
+        color: #303538;
+
+        &:nth-child(4) {
+          width: 175px;
+        }
+
+        &:nth-child(5) {
+          width: 118px;
+        }
+
+        &:last-child {
+          width: 175px;
+          border-right: none;
+        }
+      }
+
+      dt {
+        font-weight: bold;
+        font-size: 17px;
+      }
+
+      dd {
+        font-size: 15px;
+      }
+    }
+  }
+
+  // step2
+  .step2 {
+    .step-inner {
+      width: 100%;
+      padding: 50px 0;
+    }
+
+    &-notice {
+      font-size: 14px;
+      margin: -20px 0 19px;
+
+      span {
+        color: #03b1ec;
+      }
+    }
+
+    dl {
+      height: 60px;
+      padding: 10px 0;
+      color: #555;
+      border-top: 1px solid #eee;
+      font-size: 17px;
+      text-align: left;
+      overflow: hidden;
+
+      &:last-child {
+        border-bottom: 1px solid #eee;
+      }
+    }
+
+    dt,
+    dd {
+      float: left;
+      overflow: hidden;
+    }
+
+    dt {
+      width: 260px;
+      padding: 9px 0 0 40px;
+
+      span {
+        color: #03b1ec;
+      }
+    }
+
+    em {
+      color: #999;
+      line-height: 38px;
+    }
+
+    input[type='text'],
+    input[type='tel'] {
+      float: left;
+      width: 260px;
+      height: 40px;
+      padding: 0 10px;
+      margin-right: 10px;
+      border: 1px solid #333;
+      background: #fff;
+      color: #555;
+      font-size: 16px;
+      font-family: inherit;
+      line-height: 38px;
+    }
+
+    select {
+      float: left;
+      width: 260px;
+      height: 40px;
+      padding: 0 10px;
+      margin-right: 10px;
+      border: 1px solid #333;
+      color: #555;
+      font-size: 16px;
+      font-family: inherit;
+      line-height: 38px;
+
+      @include background('btn-select-arrow.png', $position: right 10px center, $color: #fff);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+
+      &::-ms-expand {
+        -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+        filter: alpha(opacity=0);
+        opacity: 0;
+      }
+    }
+
+    .phone {
+      div {
+        display: inline-block;
+        overflow: hidden;
+
+        button {
+          float: left;
+          width: 125px;
+          height: 40px;
+          background: #999;
+          color: #fff;
+          font-size: 15px;
+        }
+
+        &+div {
+          margin-left: 30px;
+
+          button {
+            background-position: -135px -330px;
+          }
+        }
+      }
+    }
+
+    .calendar {
+      img {
+        display: inline-block;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.term-list {
+  li {
+    position: relative;
+
+    .tit {
+      position: relative;
+      padding: 19px 40px;
+      border-bottom: 1px solid #222;
+      color: #4c4c4c;
+      font-size: 20px;
+      letter-spacing: -1px;
+
+      em {
+        display: inline-block;
+        color: #555;
+      }
+
+      button {
+        position: absolute;
+        right: 163px;
+        top: 50%;
+        width: 98px;
+        height: 30px;
+        color: #4b4848;
+        text-align: left;
+        font-size: 16px;
+        transform: translateY(-55%);
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          width: 10px;
+          height: 7px;
+          margin-top: -2px;
+          @include background('btns-testdriving.png', $position: -316px -363px);
+        }
+
+        &.is-show::after {
+          background-position-x: -336px;
+        }
+      }
+    }
+  }
+
+  .policy-check {
+    position: absolute;
+    right: 40px;
+    top: 30px;
+    height: 30px;
+    transform: translateY(-50%);
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      opacity: 0.001;
+
+      &:checked+.btn__vr-input {
+        background-position-x: -120px;
+      }
+    }
+
+    .btn__vr-input {
+      float: left;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      background-position: -80px -380px;
+    }
+
+    p {
+      float: left;
+      margin-top: 5px;
+      font-size: 15px;
+    }
+  }
+
+  .term {
+    display: none;
+    padding: 40px;
+    color: #999;
+
+    caption {
+      display: none;
+    }
+
+    &.is-show {
+      display: block;
+      border-bottom: 1px solid #444;
+    }
+
+    p {
+      margin: 0 0 2em;
+      font-size: 14px;
+      line-height: 22px;
+      font-size: 16px;
+
+      em {
+        text-decoration: underline;
+      }
+    }
+
+    table {
+      width: 100%;
+      margin: 5px 0 1em;
+
+      &.center td {
+        text-align: center;
+        line-height: 18px;
+      }
+
+      th,
+      td {
+        font-size: 12px;
+        line-height: 1.3em;
+        vertical-align: middle;
+      }
+
+      th {
+        padding: 0.6em 0;
+        border: 1px solid #222;
+        text-align: center;
+      }
+
+      td {
+        padding: 1em 2em;
+        border: 1px solid #222;
+      }
+
+      tbody td em {
+        font-size: 14px;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .btn__consultation-confirm {
+    width: 200px;
+    height: 63px;
+    margin: 40px auto 0;
+    background-position: -210px -286px;
+  }
+}

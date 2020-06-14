@@ -17,7 +17,7 @@ var trimSlideSettings = {
 
 var app = new Vue({
   el: '#wrap',
-  // mixins: [specMixin, consultationMixin],
+  mixins: [specMixin, consultationMixin],
   data: {
     tvcPop: false,
     showPhoto: null,

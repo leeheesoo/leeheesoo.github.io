@@ -1,0 +1,177 @@
+.theme-light {
+  color: #1d1f21;
+
+  .consultation {
+    color: #1d1f21;
+
+    .title1 {
+      margin: 0;
+      width: 100%;
+      height: 64px;
+      background: url($image-url+'/apply-title.png') top center no-repeat;
+    }
+    form {
+      color: #555;
+    }
+
+    .step1 {
+      margin-top: 50px;
+      .info {
+        dl {
+          color: #1d1f21;
+        }
+        dd {
+          color: #676767;
+        }
+      }
+    }
+
+    //---
+    .step2 {
+      input[type='text'],
+      input[type='tel'] {
+        border: 1px solid #999;
+        background: #fff;
+      }
+      select {
+        color: #555;
+        border: 1px solid #999;
+        background-color: #fff;
+      }
+      .term-list li .tit em {
+        color: inherit;
+      }
+      dl {
+        color: #555;
+        border-top: 1px solid #eee;
+        &:last-child {
+          border-bottom: 1px solid #eee;
+        }
+      }
+    }
+    .step2 .phone div button {
+      background: #999999;
+      color: #fff;
+      font-family: 'NotoKR-Regular';
+    }
+
+    .term-list li .tit em {
+      color: #1f2022;
+    }
+    .term-list .term {
+      color: #6f6f6f;
+    }
+
+    .ui-datepicker-trigger {
+      display: inline-block;
+      padding: 8px 10px;
+    }
+
+    // 개인정보 동의 내용들
+    .term {
+      font-family: 'NotoSans-Light';
+      font-size: 22px;
+      line-height: 1.5;
+      color: #6f6f6f;
+
+      &__title {
+        margin-top: 10px;
+      }
+      &__content-wrap {
+        display: flex;
+        flex-direction: column;
+
+        margin-top: 20px;
+        background-color: #f4f5f7;
+      }
+      &__content {
+        width: 100%;
+        color: #999999;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        border: 1px solid #e0e1e3;
+        &:first-child {
+          border-bottom: none;
+        }
+      }
+      .content__ele {
+        display: flex;
+        align-items: center;
+        padding: 30px 20px;
+        height: 100%;
+      }
+
+      .content {
+        &__title {
+          width: 31%;
+          align-items: center;
+        }
+        &__item {
+          width: 69%;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+
+          border-left: 1px solid #e0e1e3;
+        }
+      }
+    }
+    .term.term-1 {
+      .term {
+        &__content-wrap {
+          display: flex;
+          flex-direction: column;
+        }
+        &__content {
+          flex-direction: column;
+
+          border: 1px solid #e0e1e3;
+          &:not(:last-child) {
+            border-bottom: 0;
+          }
+        }
+      }
+      .content__ele {
+        border: none;
+        width: 100%;
+        padding: 23px;
+      }
+
+      .content {
+        &__title {
+          padding-bottom: 0;
+        }
+        &__item {
+          padding-top: 10px;
+        }
+      }
+    }
+    // end || term-1
+
+    .apply__notice {
+      display: block;
+      padding-top: 80px;
+      font-size: 20px;
+      color: #999;
+      text-align: center;
+      font-family: 'NotoSans-Light';
+      line-height: 26px;
+      letter-spacing: -0.5px;
+    }
+  }
+  // end || consultation
+
+  .term-list li .tit button {
+    color: #6f6f6f;
+  }
+  .term-list li .tit {
+    border-bottom: 1px solid #e0e1e3;
+  }
+  .under {
+    text-decoration: underline;
+    text-underline-position: under;
+  }
+}

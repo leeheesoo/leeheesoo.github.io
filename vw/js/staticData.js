@@ -38,13 +38,13 @@ var navList = [{
     goId: 'driving',
     area: null
   },
-  {
-    number: 6,
-    isOn: false,
-    name: 'TECHNOLOGY',
-    goId: 'technology',
-    area: null
-  },
+  // {
+  //   number: 6,
+  //   isOn: false,
+  //   name: 'TECHNOLOGY',
+  //   goId: 'technology',
+  //   area: null
+  // },
   {
     number: 7,
     isOn: false,

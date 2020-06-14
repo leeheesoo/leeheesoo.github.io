@@ -41,7 +41,7 @@
 // shared
 
 //#########################################
-// @import '../tech/scss/tech-pc';
+@import 'tech-pc';
 
-// @import '../consultation/scss/_consultation';
-// @import '../consultation/scss/_theme-light';
+@import '_consultation';
+@import '_theme-light';

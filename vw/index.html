@@ -215,7 +215,7 @@
                 <img v-if="!slide.video" :src="'images/pc/' + slide.image" alt="" />
 
                 <div v-show="slide.video" class="cover" id="interiorPopCover" v-on:click.prevent="playVideo($event)"></div>
-                <video v-if="slide.video" class="coverVideo" id="interiorPopMov" poster="images/pc/interior_s_video.jpg" src="video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
+                <video v-if="slide.video" class="coverVideo" id="interiorPopMov" src="video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
 
 
               </li>
@@ -268,7 +268,7 @@
     </div>
   </section>
 
-  <section class="technology tabWrap" id="technology">
+  <section class="technology tabWrap" id="technology" style="display:none">
     <div class="inner">
       <div class="sectionTitle">
         <span class="sectionTitle_blue">Technology</span>
@@ -297,7 +297,7 @@
             <div class="tabWrap_animationCover" :class="'tabWrap_animationCover' + (technologyShow+1)" @click="animation(technologyShow)">
               <button type="button" class="btn__playHover"></button>
             </div>
-            <th:block th:include="launching/_tech-pc :: tech"></th:block>
+            <!-- <th:block th:include="launching/_tech-pc :: tech"></th:block> -->
           </div>
           <div class="tabWrap_explain">
             <p v-html="technologyData[technologyShow].txt"></p>
@@ -443,7 +443,216 @@
       <div class="apply theme-light section con_inner sectionMotion">
         <div class="consultation consultation-v2" id="consultation">
           <div class="section-inner">
-            <div th:include="launching/_consultation :: consultation"></div>
+            <div class="step step1 is-show">
+              <h3 class="tit-step" @click="stepToggle(1)">트림선택</h3>
+              <button type="button" @click="stepToggle(1)" class="btns btn__step-more">
+                내용보기
+              </button>
+
+              <div class="step-inner">
+                <!-- pc에서는 button -->
+                <div class="trim-list" v-if="deviceKind=='pc'">
+                  <button type="button" v-for="(trim, trimIdx) in cars.trims" :class="['btn__tab', {'is-active': user.inter_trim_name == trim.inter_trim_name }]" :id="'trim' + trim.inter_trim" @click="setTrim(trim)">
+                    <span>{{ specInfo.kinds[trimIdx] }}</span>
+                  </button>
+                </div>
+                <!-- mobile에서는 selectbox -->
+                <div class="trim-list-wrap" v-else>
+                  <p class="placeholder">{{ user.inter_trim_name }} (MY20)</p>
+                  <select class="trim-list" v-model="setTrimTxt" @change="setTrim()">
+                    <option type=" button" v-for="(trim, trimIdx) in cars.trims" :value="trim" :class="['btn__tab', {'is-active': user.inter_trim_name == trim.inter_trim_name }]" :id="'trim' + trim.inter_trim">
+                      <span>{{ specInfo.kinds[trimIdx] }} (MY20)</span>
+                    </option>
+                  </select>
+                </div>
+
+
+                <div v-for="(trim, idx) in cars.trims" v-if="user.inter_trim_name == trim.inter_trim_name">
+                  <p class="name" v-if="deviceKind=='pc'">
+                    <strong>{{ specInfo.kinds[idx] }} (MY20)</strong>
+                  </p>
+
+                  <div class="btn-box">
+                    <p class="color-name">{{ user.inter_color_name }}</p>
+                    <!-- r-line color -->
+                    <button v-if="trim.id == 2" type="button" v-for="(color, idx) in cars.rlineColors" :class="['btn__color btn__color' + (idx + 1), {'is-active': user.inter_color_name == color.inter_color_name }]" :id="'color' + color.inter_color" @click="setColor(color);">
+                      {{ color.name }}
+                    </button>
+                    <!-- all color -->
+                    <button v-if="trim.id !== 2" type="button" v-for="(color, idx) in cars.colors" :class="['btn__color btn__color' + (idx + 1), {'is-active': user.inter_color_name == color.inter_color_name }]" :id="'color' + color.inter_color" @click="setColor(color);">
+                      {{ color.name }}
+                    </button>
+
+                  </div>
+
+                  <div class="car-img" :class="{'car-img-kind2': trim.id === 1}">
+                    <img :src="cars.imgUrl.root + cars.imgUrl.kinds[trim.id]+'/' + cars.imgUrl.fileNamePrefix + user.inter_color + '.jpg'" :alt="user.inter_color_name" />
+                  </div>
+
+                  <p class="price">
+                    <!-- 개별소비세 인하 전 : {{ trim.price }}<br> -->
+                    <span>{{ trim.discount_price }}</span>
+                  </p>
+
+                  <div class="info">
+                    <dl>
+                      <dt>Wheel</dt>
+                      <dd>{{ trim.wheel }}</dd>　　
+                    </dl>
+                    <dl>
+                      <dt>엔진</dt>
+
+                      <dd>{{ trim.engine }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>최고출력</dt>
+
+                      <dd>{{ trim.max_gravity }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>최대토크</dt>
+
+                      <dd>{{ trim.max_torque }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>배기량</dt>
+                      <dd>{{ trim.displacement }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>복합 CO<sub>2</sub>배출량</dt>
+                      <dd>{{ trim.co2_emissions }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>복합연비</dt>
+                      <dd>{{ trim.compound_fuel_efficiency }}</dd>
+                    </dl>
+                    <dl>
+                      <dt>도심/고속도로 연비</dt>
+                      <dd>{{ trim.highway_fuel_efficiency }}</dd>
+                    </dl>
+                  </div>
+                </div>
+                <button type="button" class="btns btn__consultation-next" @click="stepToggle(2)">
+                  다음
+                </button>
+              </div>
+            </div>
+
+            <div class="step step2">
+              <h3 class="tit-step" @click="stepToggle(2)">정보입력</h3>
+              <button type="button" class="btns btn__step-more" @click="stepToggle(2)">
+                내용보기
+              </button>
+              <div class="step-inner">
+                <p class="step2-notice"><span>*</span> 표시는 필수 입력 항목 입니다.</p>
+                <form id="step2Form" onsubmit="return false;">
+                  <dl class="select-type">
+                    <dt><span>* </span>시승/상담 선택</dt>
+                    <dd>
+                      <label id="type-radio" class="options" v-for="(type, index) in types" :for="'type' + index">
+                        <input type="radio" v-model="seletedType" name="seletedType" :id="'type' + index" :value="type.code" :checked="seletedType == type.code" />
+                        <span class="btn__vr-input"></span>
+                        <span class="options-txt" v-text="type.name"></span>
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label for="name"><span>* </span>신청자 성명</label>
+                    </dt>
+                    <dd>
+                      <input type="text" v-model="user.name" name="name" maxlength="20" />
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label for="birdt"><span>* </span>출생 년도</label>
+                    </dt>
+                    <dd>
+                      <select id="birth" v-model="user.birth" name="birth">
+                        <option value="">선택</option>
+                        <option v-for="year in years" :value="year">{{ year }}년</option>
+                      </select>
+                      <em>* 운전면허 소유 가능 대상 이벤트 및 정보 전달 시 필요합니다.</em>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label for="carModel"><span>&nbsp;&nbsp;</span>보유 차량모델</label>
+                    </dt>
+                    <dd>
+                      <input type="text" id="carModel" name="carModel" v-model="user.carModel" value="" />
+                    </dd>
+                  </dl>
+                  <dl class="phone">
+                    <dt>
+                      <label for="phone"><span>* </span>연락처</label>
+                    </dt>
+                    <dd>
+                      <div>
+                        <input type="tel" id="phone" v-model="user.phone" name="phone" placeholder="- 없이 입력해주세요" />
+                        <button type="button" class="btn-cert" @click="sendCert">인증번호 받기</button>
+                      </div>
+                      <div v-show="user.sendchkD == 'Y'">
+                        <input type="tel" title="인증번호 입력" placeholder="인증번호 입력" id="CertChkNum" v-model="certNumber" />
+                        <button type="button" class="btn-cert-complete" @click="checkCert">확인</button>
+                      </div>
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>
+                      <label for="place"><span>* </span>전시장 선택</label>
+                    </dt>
+                    <dd>
+                      <select id="sido" v-model="stores.sido" name="sido" @change="getGugun">
+                        <option value="">지역</option>
+                        <option v-for="item in sido" v-text="item" :value="item"></option>
+                      </select>
+                      <select id="gugun" v-model="stores.gugun" name="gugun" @change="getStores">
+                        <option value="">시군구</option>
+                        <option v-for="item in gugun" v-text="item.gugunname" :value="item.gugunname"></option>
+                      </select>
+                      <select id="network" v-model="user.showroomname" name="showroom" @change="setShowroom">
+                        <option value="">전시장</option>
+                        <option v-for="item in network" v-text="item.netname" :value="item.netname"></option>
+                      </select>
+                    </dd>
+                  </dl>
+                  <dl class="purchase-time">
+                    <dt><span>* </span>구매시기</dt>
+                    <dd>
+                      <label class="options" v-for="(purtime, index) in purtimes" :for="'purtime' + index">
+                        <input type="radio" v-model="user.purtime" name="purtime" :id="'purtime' + index" :value="purtime" />
+                        <span class="btn__vr-input"></span>
+                        <a class="options-txt" v-text="purtime"></a>
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="coul-type" id="coultype" v-show="seletedType == 'consulting'">
+                    <dt><span>* </span>상담유형</dt>
+                    <dd>
+                      <label class="options" v-for="(coultype, index) in coultypes" :for="'coultype' + index">
+                        <input type="radio" v-model="user.coultype" name="coultype" :value="coultype" :id="'coultype' + index" />
+                        <span class="btn__vr-input"></span>
+                        <a class="options-txt" v-text="coultype"></a>
+                      </label>
+                    </dd>
+                  </dl>
+                  <dl class="hope-date" id="hopedate" v-show="seletedType == 'drive'">
+                    <dt>
+                      <label for="driveday"><span>* </span>시승 희망일</label>
+                    </dt>
+                    <dd>
+                      <div class="calendar">
+                        <input type="text" id="driveday" name="hopedate" value="" readonly />
+                      </div>
+                    </dd>
+                    <p v-if="apply" class="apply__notice" v-html="apply.notice"></p>
+                  </dl>
+                  <button type="submit" class="btns btn__consultation-next btn__consultation-next-info">다음</button>
+                </form>
+              </div>
+            </div>
             <div th:include="launching/_consultation-agreement :: consultation-agreement"></div>
           </div>
         </div>
@@ -480,6 +689,9 @@
 
 </div>
 
+<script>
+  var deviceKind = 'pc'
+</script>
 
 <script src="../vendor/vue/vue.min.js"></script>
 <script src="../vendor/jquery/jquery-1.10.2.js"></script>
@@ -492,10 +704,10 @@
 <script src="js/tech-animation.js"></script>
 
 <!-- 시승/상담 신청 -->
-<!-- <script src="/launching/consultation/js/car-info.js"></script>
-  <script src="/launching/consultation/js/consultation-agreementInfo.js"></script>
-  <script src="/launching/consultation/js/consultation.js"></script>
-  <script src="/launching/consultation/js/specMixin.js"></script> -->
+<script src="js/car-info.js"></script>
+<script src="js/consultation-agreementInfo.js"></script>
+<script src="js/consultation.js"></script>
+<script src="js/specMixin.js"></script>
 
 
 <script src="js/staticData.js"></script>

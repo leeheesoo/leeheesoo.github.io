@@ -1,0 +1,866 @@
+@charset 'utf-8';
+
+.tabWrap_animation {
+  .sell {
+    position: relative;
+    width: 1240px;
+    height: inherit;
+    margin: 0 auto;
+    display: block;
+
+    &.on {
+      display: block;
+    }
+  }
+
+  .on .animation-box {
+    position: relative;
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+
+    .car {
+      display: block;
+
+      .line.on {
+        display: block;
+        @include prefix(animation, opacity-ac 1s ease-out);
+        animation-iteration-count: 1;
+      }
+    }
+
+    .car02 {
+      display: block;
+    }
+  }
+}
+
+// 1. Front Cross Traffic Assist
+.sell-animation00 {
+  .animation-00 {
+    background-image: url($image-url+'technology-animation/animation-bg00.jpg');
+  }
+
+  .pic {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    &01,
+    &02 {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .car {
+    display: none;
+    position: relative;
+    width: 300px;
+    height: 136px;
+    margin-top: 18px;
+    margin-left: 290px;
+
+    .car01 {
+      @include prefix(transform, scale(0.73));
+    }
+  }
+
+  .car02 {
+    position: absolute;
+    top: -210px;
+    left: 300px;
+  }
+
+  .car03 {
+    display: none;
+    position: absolute;
+    top: -300px;
+    right: 120px;
+  }
+
+  .round-01 {
+    position: absolute;
+    top: -38px;
+    left: 56px;
+    display: none;
+  }
+
+  .round-02 {
+    position: absolute;
+    top: 82px;
+    left: 466px;
+    display: none;
+  }
+
+  .round-03 {
+    position: absolute;
+    top: -44px;
+    left: 466px;
+    display: none;
+  }
+
+  &.on {
+    .car {
+      display: block;
+      @include prefix(animation, car-00 15s linear);
+      animation-iteration-count: infinite;
+    }
+
+    .car03.on {
+      display: block;
+      @include prefix(animation, sub-car-00 2s ease-out);
+      animation-iteration-count: 1;
+    }
+  }
+}
+
+// 3. Adaptive Cruise Control (ACC)
+.sell-animation02 {
+  .animation-02 {
+    background-image: url($image-url+'technology-animation/animation-bg.jpg');
+  }
+
+  .car {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    .circle {
+      display: block;
+      position: relative;
+      top: -540px;
+      left: 0;
+      @include prefix(animation, circle-01 0.7s linear);
+      animation-iteration-count: infinite;
+    }
+
+    .car01 {
+      position: relative;
+      top: 70px;
+      left: 0px;
+      z-index: 1;
+    }
+  }
+
+  .car02 {
+    position: absolute;
+    top: 70px;
+    right: -200px;
+  }
+
+  .cruis-km {
+    position: absolute;
+    bottom: 128px;
+    right: 90px;
+  }
+}
+
+// 4. Traffic Jam Assist
+.sell-animation03 {
+  .animation-03 {
+    background-image: url($image-url+'technology-animation/animation-bg.jpg');
+    @include prefix(animation, bgmove 10s ease-out);
+    animation-iteration-count: infinite;
+  }
+
+  .car {
+    position: absolute;
+  }
+
+  .km60 {
+    position: absolute;
+    top: 410px;
+    left: 1260px;
+    width: 159px;
+    height: 24px;
+  }
+
+  .car01 {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    z-index: 5;
+  }
+
+  .car02 {
+    position: absolute;
+    top: 70px;
+    left: 560px;
+    z-index: 5;
+  }
+
+  .cars {
+    position: absolute;
+    top: -236px;
+    left: -190px;
+  }
+
+  .circle {
+    position: absolute;
+    top: -150px;
+    left: 134px;
+    width: 600px;
+    height: 800px;
+    @include prefix(animation, circle-01 0.7s ease-out);
+    animation-iteration-count: infinite;
+  }
+
+  &.on {
+    .car {
+      @include prefix(animation, ani-03 10s ease-out);
+      animation-iteration-count: infinite;
+      // animation-delay: 1s;
+    }
+
+    .car02 {
+      @include prefix(animation, ani-03 10s ease-out);
+      // animation-delay: .5s;
+      animation-iteration-count: infinite;
+    }
+
+    .cars {
+      @include prefix(animation, ani-03 10s ease-out);
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+// 5. Predictive Pedestrian Monitoring
+.sell-animation04 {
+  .animation-04 {
+    background-image: url($image-url+'technology-animation/animation-bg04.jpg');
+  }
+
+  .car {
+    position: absolute;
+    display: none;
+  }
+
+  .car01 {
+    position: absolute;
+    top: 70px;
+    z-index: 5;
+  }
+
+  .circle {
+    position: absolute;
+    top: -170px;
+  }
+
+  .people {
+    position: absolute;
+    bottom: 123px;
+    right: 153px;
+    /* opacity:0; */
+    display: none;
+    z-index: 5;
+  }
+
+  &.on {
+    .people {
+      opacity: 1;
+      display: block;
+
+      @include prefix(animation, people-ac 6s linear);
+      animation-iteration-count: infinite;
+    }
+
+    .car {
+      display: block;
+      @include prefix(animation, car-04 6s ease-out);
+      animation-iteration-count: infinite;
+    }
+
+    .circle {
+      display: none;
+
+      &.on {
+        display: block;
+        @include prefix(animation, circle-01 0.7s ease-out);
+        animation-iteration-count: infinite;
+      }
+    }
+  }
+}
+
+// 6. Lane Assist
+.sell-animation05 {
+  .animation-05 {
+    background-image: url($image-url+'technology-animation/animation-bg-empty.jpg');
+    @include prefix(animation, loopBg 1.5s linear);
+    animation-iteration-count: infinite;
+
+    &.on {
+      background-image: url($image-url+'technology-animation/animation-bg.jpg');
+    }
+  }
+
+  .car {
+    position: absolute;
+    left: 150px;
+
+    .car01 {
+      position: absolute;
+      top: 70px;
+      left: 0px;
+    }
+
+    .circle {
+      position: absolute;
+      top: -170px;
+      left: 20px;
+      display: none;
+
+      &.on {
+        display: block;
+        @include prefix(animation, circle-01 1s ease-out);
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .line {
+      position: absolute;
+      top: 240px;
+      left: 503px;
+      // display: none;
+      opacity: 0;
+    }
+  }
+
+  .dot-line {
+    // display: none;
+    opacity: 0;
+    position: absolute;
+    top: 135px;
+    left: 40px;
+
+    &.last {
+      position: absolute;
+      top: auto;
+      bottom: 146px;
+    }
+  }
+
+  .pic01,
+  .pic02 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .pic02 {
+    opacity: 0;
+  }
+}
+
+@keyframes circle-01 {
+  from {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+
+  90% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@-ms-keyframes circle-01 {
+  from {
+    -ms-transform: scale(0.8);
+    opacity: 1;
+  }
+
+  90% {
+    -ms-transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    -ms-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes circle-01 {
+  from {
+    -webkit-transform: scale(0.8);
+    opacity: 1;
+  }
+
+  90% {
+    -webkit-transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes circle-01 {
+  from {
+    -moz-transform: scale(0.8);
+    opacity: 1;
+  }
+
+  90% {
+    -moz-transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    -moz-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@-o-keyframes circle-01 {
+  from {
+    -o-transform: scale(0.8);
+    opacity: 1;
+  }
+
+  90% {
+    -o-transform: scale(1.1);
+    opacity: 0;
+  }
+
+  100% {
+    -o-transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes loopBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1560px 0;
+  }
+}
+
+@-webkit-keyframes loopBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1560px 0;
+  }
+}
+
+@-moz-keyframes loopBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1560px 0;
+  }
+}
+
+@-o-keyframes loopBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1560px 0;
+  }
+}
+
+@-ms-keyframes loopBg {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: -1560px 0;
+  }
+}
+
+@keyframes opacity-ac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes opacity-ac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes opacity-ac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes opacity-ac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes opacity-ac {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+
+  from,
+  to {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes blink {
+
+  from,
+  to {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes blink {
+
+  from,
+  to {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes blink {
+
+  from,
+  to {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes car-00 {
+  from {
+    margin-top: 18px;
+    margin-left: 290px;
+    transform: rotate(-90deg);
+  }
+
+  10%,
+  15% {
+    margin-top: 18px;
+    margin-left: 290px;
+    transform: rotate(-90deg);
+  }
+
+  30%,
+  45% {
+    margin-top: 80px;
+    margin-left: 50px;
+    transform: rotate(0deg);
+  }
+
+  55%,
+  75% {
+    margin-top: 80px;
+    margin-left: 420px;
+    transform: rotate(0deg);
+  }
+
+  86% {
+    margin-top: 38px;
+    margin-left: 950px;
+    transform: rotate(-85deg);
+  }
+
+  92%,
+  100% {
+    margin-top: -100px;
+    margin-left: 950px;
+    transform: rotate(-95deg);
+  }
+}
+
+@keyframes sub-car-00 {
+  from {
+    top: -300px;
+  }
+
+  to {
+    top: 700px;
+  }
+}
+
+@keyframes car-04 {
+  from {
+    margin-left: -800px;
+  }
+
+  20% {
+    margin-left: 220px;
+  }
+
+  40%,
+  100% {
+    margin-left: 250px;
+  }
+}
+
+@-webkit-keyframes car-04 {
+  from {
+    margin-left: -800px;
+  }
+
+  20% {
+    margin-left: 220px;
+  }
+
+  40%,
+  100% {
+    margin-left: 250px;
+  }
+}
+
+@keyframes people-ac {
+  from {
+    opacity: 0;
+    bottom: 100px;
+  }
+
+  20%,
+  100% {
+    opacity: 1;
+    bottom: 123px;
+  }
+}
+
+@-webkit-keyframes people-ac {
+  from {
+    opacity: 0;
+    bottom: 100px;
+  }
+
+  20%,
+  100% {
+    opacity: 1;
+    bottom: 123px;
+  }
+}
+
+@-ms-keyframes people-ac {
+  from {
+    opacity: 0;
+    bottom: 100px;
+  }
+
+  20%,
+  100% {
+    opacity: 1;
+    bottom: 123px;
+  }
+}
+
+@-moz-keyframes people-ac {
+  from {
+    opacity: 0;
+    bottom: 100px;
+  }
+
+  20%,
+  100% {
+    opacity: 1;
+    bottom: 123px;
+  }
+}
+
+@keyframes ani-03 {
+  from {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 10px;
+  }
+
+  30%,
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-webkit-keyframes ani-03 {
+  from {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 10px;
+  }
+
+  30%,
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-moz-keyframes ani-03 {
+  from {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 10px;
+  }
+
+  30%,
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-o-keyframes ani-03 {
+  from {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 10px;
+  }
+
+  30%,
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@-ms-keyframes ani-03 {
+  from {
+    margin-left: 0;
+  }
+
+  20% {
+    margin-left: 10px;
+  }
+
+  30%,
+  100% {
+    margin-left: 0px;
+  }
+}
+
+@keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+
+  50%,
+  100% {
+    background-position: -1560px 0;
+  }
+}
+
+@-webkit-keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+
+  50%,
+  100% {
+    background-position: -1560px 0;
+  }
+}
+
+@-moz-keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+
+  50%,
+  100% {
+    background-position: -1560px 0;
+  }
+}
+
+@-o-keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+
+  50%,
+  100% {
+    background-position: -1560px 0;
+  }
+}
+
+@-ms-keyframes bgmove {
+  from {
+    background-position: 0 0;
+  }
+
+  50%,
+  100% {
+    background-position: -1560px 0;
+  }
+}
