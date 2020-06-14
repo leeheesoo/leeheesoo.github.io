@@ -5,502 +5,502 @@
   <title>폭스바겐 투아렉</title>
 </head>
 
-  <meta property="og:title" content="The new Touareg." />
-  <meta property="og:description" content="위대한 비전, 이것이 리더의 조건" />
-  <meta property="og:url" content="https://touareg.vwkr.co.kr/" />
-  <meta property="og:image" content="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/BN_Share_600x315.jpg" />
+<meta property="og:title" content="The new Touareg." />
+<meta property="og:description" content="위대한 비전, 이것이 리더의 조건" />
+<meta property="og:url" content="https://touareg.vwkr.co.kr/" />
+<meta property="og:image" content="https://vwkr-touareg.s3.amazonaws.com/static/launching/images/BN_Share_600x315.jpg" />
 
-  <link rel="stylesheet" href="../vendor/jquery/jquery-ui.css">
-  <link rel="stylesheet" href="css/style.min.css" />
-  <link rel="stylesheet" href="../vendor/swiper/swiper.min.css" />
-  <style>
-    .ui-datepicker {
-      background: #fff;
-      border: 1px solid #555;
-      color: #555;
-    }
-  </style>
+<link rel="stylesheet" href="../vendor/jquery/jquery-ui.css">
+<link rel="stylesheet" href="css/style.min.css" />
+<link rel="stylesheet" href="../vendor/swiper/swiper.min.css" />
+<style>
+  .ui-datepicker {
+    background: #fff;
+    border: 1px solid #555;
+    color: #555;
+  }
+</style>
 
-  <script src='https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=11294'></script>
+<script src='https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=11294'></script>
 
-  <div id="wrap" class="wrap pc" v-cloak>
-    <header>
+<div id="wrap" class="wrap pc" v-cloak>
+  <header>
+    <div class="inner">
+      <h1 @click="goSection('kv')"><img src="images/pc/logo.png" alt="" /></h1>
+      <ul class="nav_main">
+        <li v-for="nav in navList" :key="nav.name" @click="goSection(nav.goId)" :class="{ on: currentSection == nav.goId }">
+          {{nav.name}}
+        </li>
+      </ul>
+
+      <ul class="nav_sub">
+        <li @click="openPop('spec')">제원정보</li>
+        <li><a href="launching/pdf/Touareg_Mini Bro_20200206.pdf" target="_blank" download="Touareg_Mini_Bro.pdf">브로슈어</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="kv" id="kv">
+    <video class="kv_video" src="video/Touareg_15.mp4" autoplay loop muted></video>
+
+    <p class="kv_notice">
+      <span>
+        <i>*</i>본 영상의 차량 이미지와 기능은 모델 트림별로 다를 수 있습니다.
+      </span>
+    </p>
+
+    <h2 class="kv_title">
       <div class="inner">
-        <h1 @click="goSection('kv')"><img src="images/pc/logo.png" alt="" /></h1>
-        <ul class="nav_main">
-          <li v-for="nav in navList" :key="nav.name" @click="goSection(nav.goId)" :class="{ on: currentSection == nav.goId }">
-            {{nav.name}}
+        <span class="tit__secondLine op0">위대한 비전,<br>이것이 리더의 조건</span>
+        <span class="vwbold tlt__firstLine op0">The new Touareg.</span>
+      </div>
+    </h2>
+    <div class="lineWrap">
+      <span class="line gIodAN"></span>
+    </div>
+
+    <!-- tvc추가 -->
+    <aside class="tvc" id="tvc" ref="tvc">
+      <button @click="toggleTvc()" class="btns btn__tvc-close">tvc 메뉴 여닫기</button>
+      <div class="tvc-box">
+        <button type="button" class="tvc__list" @click="showTvc()">
+          <img class="tvc__bg" src="images/pc/kv_video.jpg" alt="">
+          <span class="tvc__desc">The new Touareg.<br>Full ver.</span>
+        </button>
+      </div>
+    </aside>
+    <div class="videoPop" v-if="tvcPop">
+      <div class="inner pop-tvc">
+        <div class="video_inner">
+          <button class="btns btn__tvc-close" @click="tvcPop = false">tvc 메뉴 여닫기</button>
+          <iframe src="" frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="kvLook" id="kvLook">
+    <div class="inner">
+      <h3 class="showAnimation txt">A new kind of leader.<span class="vwbold">The new Touareg.</span></h3>
+      <p class="kvLook_txt showAnimation txt">
+        <span>투아렉은 새로운 리더의 기준을 제시합니다.</span>
+        미래를 앞서 보고, 앞서 가는 비전<br />
+        넓은 시야로 세상을 바라보는 비전<br />
+        남과 다른 자신만의 확고한 비전
+      </p>
+      <p class="kvLook_txt-bold showAnimation txt">위대한 비전,<br />이것이 리더의 조건</p>
+      <span class="line"></span>
+    </div>
+    <div class="kv_bg" data-width="1024" data-height="550"></div>
+
+  </section>
+
+  <section class="exterior" id="exterior">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Exterior</span>
+        <h3>The new Touareg</h3>
+        <p>프리미엄 SUV 새로운 기준을 제시합니다.</p>
+      </div>
+
+      <div class="exterior_video">
+        <div class="cover" id="exteriorCover" v-on:click.prevent="playVideo($event)"></div>
+        <video controls class="coverVideo" poster="images/pc/exterior_video.jpg" id="exteriorMov" src="video/Touareg_30_EXTERIOR.mp4"></video>
+      </div>
+      <div class="lookContent left">
+        <!-- 설명 -->
+        <div class="lookContent_blueBox leftbox">
+          <h4 class="lookContent_title" v-html="exteriorData[exteriorShow].title"></h4>
+          <p class="lookContent_txt" v-html="exteriorData[exteriorShow].txt"></p>
+        </div>
+
+        <ul class="lookContent_list">
+          <li v-for="(exterior,idx) in exteriorData" :key="exterior.id" :class="{on : exterior.isOn}" @mouseover="listOn(exterior,exteriorData)" @click="openPop('exterior')">
+            <div class="lookContent_imageWrap">
+              <img class="lookContent_img" :src="'images/pc/' + exterior.image" alt="">
+            </div>
+            <!-- <p class="listTitle listTitle_2line" v-if="idx == 2"><span>Easy Open and Electronic</span><span class="text_padding">Closing Trunk.</span><i class="icon_arrow"></i></p> -->
+            <p class="listTitle"><span class="text_padding" v-html="exterior.title"></span><i class="icon_arrow"></i></p>
+
           </li>
         </ul>
-
-        <ul class="nav_sub">
-          <li @click="openPop('spec')">제원정보</li>
-          <li><a href="launching/pdf/Touareg_Mini Bro_20200206.pdf" target="_blank" download="Touareg_Mini_Bro.pdf">브로슈어</a></li>
-        </ul>
       </div>
-    </header>
+    </div>
 
-    <section class="kv" id="kv">
-      <video class="kv_video" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_15.mp4" autoplay loop muted></video>
-
-      <p class="kv_notice">
-        <span>
-          <i>*</i>본 영상의 차량 이미지와 기능은 모델 트림별로 다를 수 있습니다.
-        </span>
-      </p>
-
-      <h2 class="kv_title">
-        <div class="inner">
-          <span class="tit__secondLine op0">위대한 비전,<br>이것이 리더의 조건</span>
-          <span class="vwbold tlt__firstLine op0">The new Touareg.</span>
-        </div>
-      </h2>
-      <div class="lineWrap">
-        <span class="line gIodAN"></span>
-      </div>
-
-      <!-- tvc추가 -->
-      <aside class="tvc" id="tvc" ref="tvc">
-        <button @click="toggleTvc()" class="btns btn__tvc-close">tvc 메뉴 여닫기</button>
-        <div class="tvc-box">
-          <button type="button" class="tvc__list" @click="showTvc()">
-            <img class="tvc__bg" src="images/pc/kv_video.jpg" alt="">
-            <span class="tvc__desc">The new Touareg.<br>Full ver.</span>
-          </button>
-        </div>
-      </aside>
-      <div class="videoPop" v-if="tvcPop">
-        <div class="inner pop-tvc">
-          <div class="video_inner">
-            <button class="btns btn__tvc-close" @click="tvcPop = false">tvc 메뉴 여닫기</button>
-            <iframe src="" frameborder="0"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="kvLook" id="kvLook">
+    <!-- popup -->
+    <div class="exterior_popup popup" v-show="currentPopup == 'exterior'">
       <div class="inner">
-        <h3 class="showAnimation txt">A new kind of leader.<span class="vwbold">The new Touareg.</span></h3>
-        <p class="kvLook_txt showAnimation txt">
-          <span>투아렉은 새로운 리더의 기준을 제시합니다.</span>
-          미래를 앞서 보고, 앞서 가는 비전<br />
-          넓은 시야로 세상을 바라보는 비전<br />
-          남과 다른 자신만의 확고한 비전
-        </p>
-        <p class="kvLook_txt-bold showAnimation txt">위대한 비전,<br />이것이 리더의 조건</p>
-        <span class="line"></span>
-      </div>
-      <div class="kv_bg" data-width="1024" data-height="550"></div>
-
-    </section>
-
-    <section class="exterior" id="exterior">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Exterior</span>
-          <h3>The new Touareg</h3>
-          <p>프리미엄 SUV 새로운 기준을 제시합니다.</p>
-        </div>
-
-        <div class="exterior_video">
-          <div class="cover" id="exteriorCover" v-on:click.prevent="playVideo($event)"></div>
-          <video controls class="coverVideo" poster="images/pc/exterior_video.jpg" id="exteriorMov" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_EXTERIOR.mp4"></video>
-        </div>
-        <div class="lookContent left">
-          <!-- 설명 -->
-          <div class="lookContent_blueBox leftbox">
-            <h4 class="lookContent_title" v-html="exteriorData[exteriorShow].title"></h4>
-            <p class="lookContent_txt" v-html="exteriorData[exteriorShow].txt"></p>
+        <button class="btn_close" @click="closePop()"></button>
+        <div class="exterior-container">
+          <!-- 고정 txt 일때만 show -->
+          <div class="slide_txt" v-show="exteriorShow == 0">
+            <h4 v-html="exteriorData[exteriorShow].popTitle"></h4>
+            <p class="slide_txt-small" v-html="exteriorData[exteriorShow].txt"></p>
           </div>
 
-          <ul class="lookContent_list">
-            <li v-for="(exterior,idx) in exteriorData" :key="exterior.id" :class="{on : exterior.isOn}" @mouseover="listOn(exterior,exteriorData)" @click="openPop('exterior')">
-              <div class="lookContent_imageWrap">
-                <img class="lookContent_img" :src="'images/pc/' + exterior.image" alt="">
+
+          <ul class="swiper-wrapper">
+            <!-- Slides -->
+            <li class="swiper-slide" v-for="slide in exteriorData[exteriorShow].slide">
+              <!-- 가변 txt 일때만 show -->
+              <div class="slide_txt" v-show="exteriorShow !== 0">
+                <h4 v-html="slide.title"></h4>
+                <p class="slide_txt-small" v-html="slide.txt"></p>
               </div>
-              <!-- <p class="listTitle listTitle_2line" v-if="idx == 2"><span>Easy Open and Electronic</span><span class="text_padding">Closing Trunk.</span><i class="icon_arrow"></i></p> -->
-              <p class="listTitle"><span class="text_padding" v-html="exterior.title"></span><i class="icon_arrow"></i></p>
+
+              <img :src="'images/pc/' + slide.image" alt="" />
 
             </li>
           </ul>
+
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="interior" id="interior">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Interior</span>
+        <h3>The new Touareg</h3>
+        <p>프리미엄 SUV다운 편안함을 선사합니다.</p>
+      </div>
+
+      <div class="interior_videoWrap">
+        <div class="cover" id="interiorCover" v-on:click.prevent="playVideo($event)"></div>
+        <video class="coverVideo" id="interiorMov" poster="images/pc/interior_video.jpg" src="video/Touareg_30_INTERIOR.mp4" controls></video>
+      </div>
+
+      <div class="lookContent right">
+        <ul class="lookContent_list">
+          <li v-for="interior in interiorData" :key="interior.id" :class="{on:interior.isOn}" @mouseover="listOn(interior,interiorData)" @click="openPop('interior')">
+            <div class="lookContent_imageWrap">
+              <img class="lookContent_img" :src="'images/pc/' + interior.image" alt="">
+            </div>
+            <p class="listTitle"><span class="text_padding" v-html="interior.title"></span><i class="icon_arrow"></i></p>
+          </li>
+        </ul>
+
+        <!-- 설명 -->
+        <div class="lookContent_blueBox rightbox">
+          <h4 class="lookContent_title" v-html="interiorData[interiorShow].title"></h4>
+          <p class="lookContent_txt" v-html="interiorData[interiorShow].txt"></p>
+
         </div>
       </div>
 
       <!-- popup -->
-      <div class="exterior_popup popup" v-show="currentPopup == 'exterior'">
+      <div class="interior_popup popup" v-show="currentPopup == 'interior'">
         <div class="inner">
           <button class="btn_close" @click="closePop()"></button>
-          <div class="exterior-container">
-            <!-- 고정 txt 일때만 show -->
-            <div class="slide_txt" v-show="exteriorShow == 0">
-              <h4 v-html="exteriorData[exteriorShow].popTitle"></h4>
-              <p class="slide_txt-small" v-html="exteriorData[exteriorShow].txt"></p>
-            </div>
+          <div class="interior-container">
 
+            <!-- 고정 txt 일때만 show -->
+            <!-- <div class="slide_txt" v-show="interiorShow == 1">
+                <h4 v-html="interiorData[interiorShow].popTitle"></h4>
+                <p class="slide_txt-small" v-html="interiorData[interiorShow].txt"></p>
+              </div> -->
 
             <ul class="swiper-wrapper">
               <!-- Slides -->
-              <li class="swiper-slide" v-for="slide in exteriorData[exteriorShow].slide">
+              <li class="swiper-slide" v-for="slide in interiorData[interiorShow].slide">
                 <!-- 가변 txt 일때만 show -->
-                <div class="slide_txt" v-show="exteriorShow !== 0">
+                <div class="slide_txt">
                   <h4 v-html="slide.title"></h4>
                   <p class="slide_txt-small" v-html="slide.txt"></p>
                 </div>
+                <img v-if="!slide.video" :src="'images/pc/' + slide.image" alt="" />
 
-                <img :src="'images/pc/' + slide.image" alt="" />
+                <div v-show="slide.video" class="cover" id="interiorPopCover" v-on:click.prevent="playVideo($event)"></div>
+                <video v-if="slide.video" class="coverVideo" id="interiorPopMov" poster="images/pc/interior_s_video.jpg" src="video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
+
 
               </li>
+            </ul>
+
+            <!-- <div v-if="interiorShow == 0" class="swiper-pagination fake-pagination"></div> -->
+            <div class="swiper-pagination"></div>
+
+
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+
+          <!-- <span class="icon_hand" v-if="interiorShow == 0"><img src="images/pc/Icon_drag.png" alt=""></span> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="driving tabWrap " id="driving">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Driving</span>
+        <h3>A supremely confident drive</h3>
+        <p>오프로드 감성 뿐만 아니라 도심 주행을 위한 소프트함과 민첩한 움직임까지 갖추었습니다.</p>
+      </div>
+
+      <div class="con_inner sectionMotion">
+        <!-- con -->
+        <ul class="driving_list">
+          <li v-for="driving in drivingData" :key="driving.id" :class="{on : driving.isOn}" @click="listOn(driving,drivingData)">
+            <span>{{driving.title}}</span>
+          </li>
+        </ul>
+        <div class="tabWrap_show">
+          <div class="driving_videoWrap">
+            <div class="cover" id="drivingCover" v-on:click.prevent="playVideo($event)"></div>
+            <video class="coverVideo" :poster="'images/pc/'+drivingData[drivingShow].coverImg" id="drivingMov" :src="'video/driving/'+drivingData[drivingShow].video"></video>
+          </div>
+
+          <div class="tabWrap_explain">
+            <p v-html="drivingData[drivingShow].txt"></p>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+  <section class="technology tabWrap" id="technology">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Technology</span>
+        <h3>Innovative technology to keep you safe</h3>
+        <p>자신있는 드라이빙과 더불어 혁신적인 운전자 보조 시스템을 겸비하였습니다.</p>
+      </div>
+
+      <!-- con -->
+      <div class="con_inner sectionMotion">
+        <div class="tabOutWrap swiper-container technologySlider">
+          <div id="technologySlider">
+            <ul class="tabWrap_list swiper-wrapper">
+              <li v-for="technology in technologyData" class="swiper-slide" :key="technology.id" :class="{on : technology.isOn}" @click="listOn(technology,technologyData)">
+                <span>{{technology.title}}</span>
+              </li>
+            </ul>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+          </div>
+        </div>
+
+        <div class="tabWrap_show technology">
+          <!-- 1, 2, 7번만 이미지 -->
+          <img v-show="technologyShow === 0 || technologyShow === 1 || technologyShow === 6" :src="'images/pc/technology'+(technologyShow+1)+'.jpg'" alt="" />
+          <div class="tabWrap_animation" v-show="technologyShow !== 0 &&technologyShow !== 1 && technologyShow !== 6">
+            <div class="tabWrap_animationCover" :class="'tabWrap_animationCover' + (technologyShow+1)" @click="animation(technologyShow)">
+              <button type="button" class="btn__playHover"></button>
+            </div>
+            <th:block th:include="launching/_tech-pc :: tech"></th:block>
+          </div>
+          <div class="tabWrap_explain">
+            <p v-html="technologyData[technologyShow].txt"></p>
+          </div>
+        </div>
+        <p class="technology_notice"> 차량의 통제는 운전자의 판단에 의해 이루어져야 하며 본 시스템에만 의존할 경우 사고가 날 수 있습니다.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sectionGallery" id="gallery">
+    <div class="sectionTitle">
+      <h3>Gallery</h3>
+    </div>
+
+    <div class="gallery_wrap">
+      <!-- Gallery list -->
+      <ul class="gallery">
+        <li v-for="idx in 8" class="showAnimation gallery_photo" @click="photoView"><img :id="'photo_'+idx" :src="'images/pc/gallery'+idx+'.jpg'" alt="" /></li>
+      </ul>
+      <!-- 좌우 버튼 -->
+      <div class="inner" v-show="!(windowWidth >= galleryWidth)">
+        <button class="btn btn-prev" @click="galleryMov('left')"></button>
+        <button class="btn btn-next" @click="galleryMov('right')"></button>
+      </div>
+
+      <p class="gallery_notice"> 이미지는 실제 차량과 다를 수 있습니다.</p>
+    </div>
+
+    <!-- 사진 팝업 -->
+    <div class="photo_wrap">
+      <div class="inner">
+
+
+        <div class="gallerySlide_wrap">
+          <button class="btn btn_close" @click="photoClose()"></button>
+          <div class="swiper-container gallerySlide">
+            <ul class="swiper-wrapper">
+              <!-- Slides -->
+              <li class="swiper-slide" v-for="idx in 8"><img :src="'images/pc/pop_gallery'+idx+'.jpg'" alt="" /></li>
             </ul>
 
             <div class="swiper-pagination"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
           </div>
+
+
         </div>
-      </div>
-    </section>
-
-    <section class="interior" id="interior">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Interior</span>
-          <h3>The new Touareg</h3>
-          <p>프리미엄 SUV다운 편안함을 선사합니다.</p>
-        </div>
-
-        <div class="interior_videoWrap">
-          <div class="cover" id="interiorCover" v-on:click.prevent="playVideo($event)"></div>
-          <video class="coverVideo" id="interiorMov" poster="images/pc/interior_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/Touareg_30_INTERIOR.mp4" controls></video>
-        </div>
-
-        <div class="lookContent right">
-          <ul class="lookContent_list">
-            <li v-for="interior in interiorData" :key="interior.id" :class="{on:interior.isOn}" @mouseover="listOn(interior,interiorData)" @click="openPop('interior')">
-              <div class="lookContent_imageWrap">
-                <img class="lookContent_img" :src="'images/pc/' + interior.image" alt="">
-              </div>
-              <p class="listTitle"><span class="text_padding" v-html="interior.title"></span><i class="icon_arrow"></i></p>
-            </li>
-          </ul>
-
-          <!-- 설명 -->
-          <div class="lookContent_blueBox rightbox">
-            <h4 class="lookContent_title" v-html="interiorData[interiorShow].title"></h4>
-            <p class="lookContent_txt" v-html="interiorData[interiorShow].txt"></p>
-
-          </div>
-        </div>
-
-        <!-- popup -->
-        <div class="interior_popup popup" v-show="currentPopup == 'interior'">
-          <div class="inner">
-            <button class="btn_close" @click="closePop()"></button>
-            <div class="interior-container">
-
-              <!-- 고정 txt 일때만 show -->
-              <!-- <div class="slide_txt" v-show="interiorShow == 1">
-                <h4 v-html="interiorData[interiorShow].popTitle"></h4>
-                <p class="slide_txt-small" v-html="interiorData[interiorShow].txt"></p>
-              </div> -->
-
-              <ul class="swiper-wrapper">
-                <!-- Slides -->
-                <li class="swiper-slide" v-for="slide in interiorData[interiorShow].slide">
-                  <!-- 가변 txt 일때만 show -->
-                  <div class="slide_txt">
-                    <h4 v-html="slide.title"></h4>
-                    <p class="slide_txt-small" v-html="slide.txt"></p>
-                  </div>
-                  <img v-if="!slide.video" :src="'images/pc/' + slide.image" alt="" />
-
-                  <div v-show="slide.video" class="cover" id="interiorPopCover" v-on:click.prevent="playVideo($event)"></div>
-                  <video v-if="slide.video" class="coverVideo" id="interiorPopMov" poster="images/pc/interior_s_video.jpg" src="https://vwkr-touareg.s3.amazonaws.com/static/launching/video/04_Innovision Cockpit.mp4" controls muted playsinline></video>
-
-
-                </li>
-              </ul>
-
-              <!-- <div v-if="interiorShow == 0" class="swiper-pagination fake-pagination"></div> -->
-              <div class="swiper-pagination"></div>
-
-
-
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-
-            <!-- <span class="icon_hand" v-if="interiorShow == 0"><img src="images/pc/Icon_drag.png" alt=""></span> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="driving tabWrap " id="driving">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Driving</span>
-          <h3>A supremely confident drive</h3>
-          <p>오프로드 감성 뿐만 아니라 도심 주행을 위한 소프트함과 민첩한 움직임까지 갖추었습니다.</p>
-        </div>
-
-        <div class="con_inner sectionMotion">
-          <!-- con -->
-          <ul class="driving_list">
-            <li v-for="driving in drivingData" :key="driving.id" :class="{on : driving.isOn}" @click="listOn(driving,drivingData)">
-              <span>{{driving.title}}</span>
-            </li>
-          </ul>
-          <div class="tabWrap_show">
-            <div class="driving_videoWrap">
-              <div class="cover" id="drivingCover" v-on:click.prevent="playVideo($event)"></div>
-              <video class="coverVideo" :poster="'images/pc/'+drivingData[drivingShow].coverImg" id="drivingMov" :src="'https://vwkr-touareg.s3.amazonaws.com/static/launching/video/driving/'+drivingData[drivingShow].video"></video>
-            </div>
-
-            <div class="tabWrap_explain">
-              <p v-html="drivingData[drivingShow].txt"></p>
-            </div>
-          </div>
-        </div>
-
 
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="technology tabWrap" id="technology">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Technology</span>
-          <h3>Innovative technology to keep you safe</h3>
-          <p>자신있는 드라이빙과 더불어 혁신적인 운전자 보조 시스템을 겸비하였습니다.</p>
-        </div>
-
-        <!-- con -->
-        <div class="con_inner sectionMotion">
-          <div class="tabOutWrap swiper-container technologySlider">
-            <div id="technologySlider">
-              <ul class="tabWrap_list swiper-wrapper">
-                <li v-for="technology in technologyData" class="swiper-slide" :key="technology.id" :class="{on : technology.isOn}" @click="listOn(technology,technologyData)">
-                  <span>{{technology.title}}</span>
-                </li>
-              </ul>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-          </div>
-
-          <div class="tabWrap_show technology">
-            <!-- 1, 2, 7번만 이미지 -->
-            <img v-show="technologyShow === 0 || technologyShow === 1 || technologyShow === 6" :src="'images/pc/technology'+(technologyShow+1)+'.jpg'" alt="" />
-            <div class="tabWrap_animation" v-show="technologyShow !== 0 &&technologyShow !== 1 && technologyShow !== 6">
-              <div class="tabWrap_animationCover" :class="'tabWrap_animationCover' + (technologyShow+1)" @click="animation(technologyShow)">
-                <button type="button" class="btn__playHover"></button>
-              </div>
-              <th:block th:include="launching/_tech-pc :: tech"></th:block>
-            </div>
-            <div class="tabWrap_explain">
-              <p v-html="technologyData[technologyShow].txt"></p>
-            </div>
-          </div>
-          <p class="technology_notice"> 차량의 통제는 운전자의 판단에 의해 이루어져야 하며 본 시스템에만 의존할 경우 사고가 날 수 있습니다.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="sectionGallery" id="gallery">
+  <section class="trim" id="trim">
+    <div class="inner">
       <div class="sectionTitle">
-        <h3>Gallery</h3>
+        <h3>Trim</h3>
+        <p>투아렉의 트림을 확인하세요.</p>
       </div>
+      <ul class="trim_kind">
+        <li v-for="trim in trimData" :key="trim.id" :class="{on : trim.isOn}" @click="listOn(trim,trimData)">
+          <span>{{trim.title}}</span>
+        </li>
+      </ul>
 
-      <div class="gallery_wrap">
-        <!-- Gallery list -->
-        <ul class="gallery">
-          <li v-for="idx in 8" class="showAnimation gallery_photo" @click="photoView"><img :id="'photo_'+idx" :src="'images/pc/gallery'+idx+'.jpg'" alt="" /></li>
-        </ul>
-        <!-- 좌우 버튼 -->
-        <div class="inner" v-show="!(windowWidth >= galleryWidth)">
-          <button class="btn btn-prev" @click="galleryMov('left')"></button>
-          <button class="btn btn-next" @click="galleryMov('right')"></button>
-        </div>
-
-        <p class="gallery_notice"> 이미지는 실제 차량과 다를 수 있습니다.</p>
-      </div>
-
-      <!-- 사진 팝업 -->
-      <div class="photo_wrap">
-        <div class="inner">
-
-
-          <div class="gallerySlide_wrap">
-            <button class="btn btn_close" @click="photoClose()"></button>
-            <div class="swiper-container gallerySlide">
-              <ul class="swiper-wrapper">
-                <!-- Slides -->
-                <li class="swiper-slide" v-for="idx in 8"><img :src="'images/pc/pop_gallery'+idx+'.jpg'" alt="" /></li>
-              </ul>
-
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-            </div>
-
-
-          </div>
-
-
-        </div>
-      </div>
-    </section>
-
-    <section class="trim" id="trim">
-      <div class="inner">
-        <div class="sectionTitle">
-          <h3>Trim</h3>
-          <p>투아렉의 트림을 확인하세요.</p>
-        </div>
-        <ul class="trim_kind">
-          <li v-for="trim in trimData" :key="trim.id" :class="{on : trim.isOn}" @click="listOn(trim,trimData)">
-            <span>{{trim.title}}</span>
+      <div class="swiper-container trim-slide">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide" v-for="trimImg in trimData[trimShow].images">
+            <img :src="'images/pc/trim/'+trimImg" alt="">
           </li>
         </ul>
 
-        <div class="swiper-container trim-slide">
-          <ul class="swiper-wrapper">
-            <li class="swiper-slide" v-for="trimImg in trimData[trimShow].images">
-              <img :src="'images/pc/trim/'+trimImg" alt="">
-            </li>
-          </ul>
-
-          <div class="trim-button-prev swiper-button-prev"></div>
-          <div class="trim-button-next swiper-button-next"></div>
-        </div>
-
-        <div class="trim-pagination trim-pagination"></div>
-        <p class="trim_notice"> 이미지는 실제 차량과 다를 수 있습니다.</p>
+        <div class="trim-button-prev swiper-button-prev"></div>
+        <div class="trim-button-next swiper-button-next"></div>
       </div>
-    </section>
 
-    <section class="promotion" id="promotion">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Promotion</span>
-          <h3 class="ko">스페셜 프로모션</h3>
-        </div>
+      <div class="trim-pagination trim-pagination"></div>
+      <p class="trim_notice"> 이미지는 실제 차량과 다를 수 있습니다.</p>
+    </div>
+  </section>
 
-        <div class="con_inner sectionMotion">
-          <ul class="promotion_list">
-            <li>
-              <h4>3.0 TDI Premium</h4>
-              <p>폭스바겐 파이낸셜 서비스 이용 시 <span class="bigBold">8<span class="percent">%</span></span>,
-                현금 구매 시 <span class="bigBold">7<span class="percent">%</span> 할인 <sup>1)</sup></span>
-              </p>
-
-              <h4>3.0 TDI Prestige <span>&</span> R-Line</h4>
-              <p>폭스바겐 파이낸셜 서비스 이용 시 <span class="bigBold">5<span class="percent">%</span></span>,
-                현금 구매 시 <span class="bigBold">4<span class="percent">%</span> 할인 <sup>1)</sup></span>
-              </p>
-            </li>
-
-            <li>
-              <h4>5년 또는 150,000km</h4>
-              <p>보증 연장 <sup>2)</sup></p>
-            </li>
-            <li>
-              <h4>폭스바겐 웰컴서비스 <sup>3)</sup></h4>
-              <p>차량 점검 및 액체류 부품(탑업) 서비스 제공,<br>첫 공식 서비스 30% 할인 제공</p>
-            </li>
-            <li>
-              <h4>5년 롱라이프 메인터넌스 <sup>4)</sup></h4>
-              <p>기본 케어프리 3년 + 2년 추가<br>소모품 서비스</p>
-            </li>
-            <li>
-              <h4>중고차량 반납 프로그램</h4>
-              <p class="bigBold">200만원 지원</p>
-            </li>
-          </ul>
-
-          <ul class="promotion_notice">
-            <li><sup>1)</sup> 상세한 조건은 가까운 전시장에서 상담 받으시기 바랍니다.</li>
-            <li><sup>2)</sup> 5년 또는 15만km 선도래 조건 적용 됩니다. </li>
-            <li><sup>3)</sup> 해당 서비스는 신차 보증 시작일로부터 6개월내 1회 한도 서비스 제공받는 혜택입니다.</li>
-            <li><sup>4)</sup> 무상 서비스로 제공되는 소모품은 가까운 전시장에서 상담 받으시기 바랍니다. 사용 패턴 주행거리에 따라 제공된 소모품은 표시 기간보다 조기에 소진 될 수 있습니다.</li>
-            <li class="icon_show">본 프로모션은 예고 없이 변경될 수 있으며 당월 출고 고객에게 적용되는 혜택입니다.</li>
-            <li class="icon_show">자세한 사항은 가까운 전시장에서 상담 받으시기 바랍니다.</li>
-          </ul>
-        </div>
+  <section class="promotion" id="promotion">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Promotion</span>
+        <h3 class="ko">스페셜 프로모션</h3>
       </div>
-    </section>
 
-    <section class="testDriving" id="testdriving">
-      <div class="inner">
-        <div class="sectionTitle">
-          <span class="sectionTitle_blue">Test driving</span>
-          <h3 class="ko">시승 / 상담 신청</h3>
-        </div>
+      <div class="con_inner sectionMotion">
+        <ul class="promotion_list">
+          <li>
+            <h4>3.0 TDI Premium</h4>
+            <p>폭스바겐 파이낸셜 서비스 이용 시 <span class="bigBold">8<span class="percent">%</span></span>,
+              현금 구매 시 <span class="bigBold">7<span class="percent">%</span> 할인 <sup>1)</sup></span>
+            </p>
 
-        <div class="apply theme-light section con_inner sectionMotion">
-          <div class="consultation consultation-v2" id="consultation">
-            <div class="section-inner">
-              <div th:include="launching/_consultation :: consultation"></div>
-              <div th:include="launching/_consultation-agreement :: consultation-agreement"></div>
-            </div>
-          </div>
-        </div>
+            <h4>3.0 TDI Prestige <span>&</span> R-Line</h4>
+            <p>폭스바겐 파이낸셜 서비스 이용 시 <span class="bigBold">5<span class="percent">%</span></span>,
+              현금 구매 시 <span class="bigBold">4<span class="percent">%</span> 할인 <sup>1)</sup></span>
+            </p>
+          </li>
 
+          <li>
+            <h4>5년 또는 150,000km</h4>
+            <p>보증 연장 <sup>2)</sup></p>
+          </li>
+          <li>
+            <h4>폭스바겐 웰컴서비스 <sup>3)</sup></h4>
+            <p>차량 점검 및 액체류 부품(탑업) 서비스 제공,<br>첫 공식 서비스 30% 할인 제공</p>
+          </li>
+          <li>
+            <h4>5년 롱라이프 메인터넌스 <sup>4)</sup></h4>
+            <p>기본 케어프리 3년 + 2년 추가<br>소모품 서비스</p>
+          </li>
+          <li>
+            <h4>중고차량 반납 프로그램</h4>
+            <p class="bigBold">200만원 지원</p>
+          </li>
+        </ul>
 
-      </div>
-    </section>
-
-    <div class="consulting">
-      <div class="inner">
-        <strong>상담 및 문의<em>1577-6905</em></strong>
-        <p>자세한 내용은 가까운 폭스바겐 전시장에서 상담 바랍니다.</p>
+        <ul class="promotion_notice">
+          <li><sup>1)</sup> 상세한 조건은 가까운 전시장에서 상담 받으시기 바랍니다.</li>
+          <li><sup>2)</sup> 5년 또는 15만km 선도래 조건 적용 됩니다. </li>
+          <li><sup>3)</sup> 해당 서비스는 신차 보증 시작일로부터 6개월내 1회 한도 서비스 제공받는 혜택입니다.</li>
+          <li><sup>4)</sup> 무상 서비스로 제공되는 소모품은 가까운 전시장에서 상담 받으시기 바랍니다. 사용 패턴 주행거리에 따라 제공된 소모품은 표시 기간보다 조기에 소진 될 수 있습니다.</li>
+          <li class="icon_show">본 프로모션은 예고 없이 변경될 수 있으며 당월 출고 고객에게 적용되는 혜택입니다.</li>
+          <li class="icon_show">자세한 사항은 가까운 전시장에서 상담 받으시기 바랍니다.</li>
+        </ul>
       </div>
     </div>
+  </section>
 
-    <footer>
-      <div class="inner">
-        <a href="http://www.vwkr.co.kr/ifrm/policy/policy.html" target="_blank">개인정보처리방침</a>
-
-        <div class="address">
-          <span>
-            <address>서울특별시 강남구 영동대로 731 신영빌딩 6층</address>
-          </span>
-          <span><strong>연락처</strong>1577-6905</span>
-        </div>
-        <p class="copyright">&copy; 2020. Audi Volkswagen Korea.<br>All rights reserved.</p>
+  <section class="testDriving" id="testdriving">
+    <div class="inner">
+      <div class="sectionTitle">
+        <span class="sectionTitle_blue">Test driving</span>
+        <h3 class="ko">시승 / 상담 신청</h3>
       </div>
-    </footer>
 
-    <!-- pop: 제원정보 -->
-    <!-- <th:block th:include="launching/_spec-pc :: spec"></th:block> -->
-    <!-- // pop: 제원정보 -->
+      <div class="apply theme-light section con_inner sectionMotion">
+        <div class="consultation consultation-v2" id="consultation">
+          <div class="section-inner">
+            <div th:include="launching/_consultation :: consultation"></div>
+            <div th:include="launching/_consultation-agreement :: consultation-agreement"></div>
+          </div>
+        </div>
+      </div>
 
+
+    </div>
+  </section>
+
+  <div class="consulting">
+    <div class="inner">
+      <strong>상담 및 문의<em>1577-6905</em></strong>
+      <p>자세한 내용은 가까운 폭스바겐 전시장에서 상담 바랍니다.</p>
+    </div>
   </div>
 
+  <footer>
+    <div class="inner">
+      <a href="http://www.vwkr.co.kr/ifrm/policy/policy.html" target="_blank">개인정보처리방침</a>
 
-  <script src="../vendor/vue/vue.min.js"></script>
-  <script src="../vendor/jquery/jquery-1.10.2.js"></script>
-  <script src="../vendor/scrollMagic/ScrollMagic.js"></script>
-  <script src="../vendor/jquery/jquery-ui.min.js"></script>
-  <script src="../vendor/swiper/swiper.js"></script>
-  <script src="../vendor/scrollMagic/TweenMax.min.js"></script>
+      <div class="address">
+        <span>
+          <address>서울특별시 강남구 영동대로 731 신영빌딩 6층</address>
+        </span>
+        <span><strong>연락처</strong>1577-6905</span>
+      </div>
+      <p class="copyright">&copy; 2020. Audi Volkswagen Korea.<br>All rights reserved.</p>
+    </div>
+  </footer>
 
-  <!-- technology -->
-  <script src="js/tech-animation.js"></script>
+  <!-- pop: 제원정보 -->
+  <!-- <th:block th:include="launching/_spec-pc :: spec"></th:block> -->
+  <!-- // pop: 제원정보 -->
 
-  <!-- 시승/상담 신청 -->
-  <!-- <script src="/launching/consultation/js/car-info.js"></script>
+</div>
+
+
+<script src="../vendor/vue/vue.min.js"></script>
+<script src="../vendor/jquery/jquery-1.10.2.js"></script>
+<script src="../vendor/scrollMagic/ScrollMagic.js"></script>
+<script src="../vendor/jquery/jquery-ui.min.js"></script>
+<script src="../vendor/swiper/swiper.js"></script>
+<script src="../vendor/greenSock/TweenMax.min.js"></script>
+
+<!-- technology -->
+<script src="js/tech-animation.js"></script>
+
+<!-- 시승/상담 신청 -->
+<!-- <script src="/launching/consultation/js/car-info.js"></script>
   <script src="/launching/consultation/js/consultation-agreementInfo.js"></script>
   <script src="/launching/consultation/js/consultation.js"></script>
   <script src="/launching/consultation/js/specMixin.js"></script> -->
 
 
-  <script src="js/staticData.js"></script>
-  <script src="js/scrollMagicMotion.js"></script>
-  <script src="js/main.js"></script>
+<script src="js/staticData.js"></script>
+<script src="js/scrollMagicMotion.js"></script>
+<script src="js/main.js"></script>
 
 
 

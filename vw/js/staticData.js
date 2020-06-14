@@ -362,13 +362,13 @@ var trimData = [{
     id: 1,
     isOn: false,
     title: '3.0 TDI Prestige',
-    images: ['01Web_04Trim_02Prestige_03_1.jpg', '01Web_04Trim_02Prestige_03_2.jpg', '01Web_04Trim_02Prestige_03_3.jpg', '01Web_04Trim_02Prestige_03_4.jpg', '01Web_04Trim_02Prestige_03_5.jpg', '01Web_04Trim_02Prestige_03_6.jpg', '01Web_04Trim_02Prestige_03_7.jpg', 'Trim_02Prestige_00_1.jpg', 'Trim_02Prestige_00_2.jpg']
+    images: ['01Web_04Trim_02Prestige_03_1.jpg', '01Web_04Trim_02Prestige_03_2.jpg', '01Web_04Trim_02Prestige_03_3.jpg', '01Web_04Trim_02Prestige_03_4.jpg', '01Web_04Trim_02Prestige_03_5.jpg', '01Web_04Trim_02Prestige_03_6.jpg', '01Web_04Trim_02Prestige_03_7.jpg', 'Trim_01Premium_00_1.jpg', 'Trim_01Premium_00_2.jpg']
   },
   {
     id: 2,
     isOn: false,
     title: '3.0 TDI R-Line',
-    images: ['01Web_04Trim_03Rline_01_1.jpg', '01Web_04Trim_03Rline_01_2.jpg', '01Web_04Trim_03Rline_01_3.jpg', '01Web_04Trim_03Rline_01_4.jpg', '01Web_04Trim_03Rline_01_5.jpg', '01Web_04Trim_03Rline_01_6.jpg', '01Web_04Trim_03Rline_01_7.jpg', 'Trim_03Rline_00_1.jpg', 'Trim_03Rline_00_2.jpg']
+    images: ['01Web_04Trim_03Rline_01_1.jpg', '01Web_04Trim_03Rline_01_2.jpg', '01Web_04Trim_03Rline_01_3.jpg', '01Web_04Trim_03Rline_01_4.jpg', '01Web_04Trim_03Rline_01_5.jpg', '01Web_04Trim_03Rline_01_6.jpg', '01Web_04Trim_03Rline_01_7.jpg', 'Trim_01Premium_00_1.jpg', 'Trim_01Premium_00_2.jpg']
   }
   // {
   //   id: 3,
