@@ -41,7 +41,7 @@
 // shared
 
 //#########################################
-@import '../tech/scss/tech-m';
+@import 'tech-m';
 
-@import '../consultation/scss/_consultation-m';
-@import '../consultation/scss/_theme-light-m';
+@import '_consultation-m';
+@import '_theme-light-m';
