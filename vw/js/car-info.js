@@ -88,9 +88,8 @@ var carInfo = {
     inter_color_name: 'Deep Black Pearleffect',
     inter_color: 7
   }],
-  // heeok / add / 2019-02-14 / 데이타연동
   imgUrl: {
-    root: 'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/car-trim-',
+    root: 'images/car-trim-',
     kinds: ['premium', 'prestige', 'rline'],
     fileNamePrefix: 'trim_inter_color_'
   }
