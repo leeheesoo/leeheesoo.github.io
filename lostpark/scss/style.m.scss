@@ -1,0 +1,38 @@
+@charset 'utf-8';
+
+// font
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700&subset=korean');
+
+//#########################################
+
+// common
+
+//#########################################
+@import '../../dev-common/scss/vendor/normalize';
+@import '../../dev-common/scss/mixin/background';
+@import '../../dev-common/scss/util/a11y-hidden';
+
+
+//#########################################
+
+// local setting
+
+//#########################################
+//@import 'variable';
+@import 'mixin';
+@import 'reset';
+
+
+//#########################################
+
+// pages 
+
+//#########################################
+@import 'variable';
+
+@import 'page';
+@import 'btn';
+
+@import 'popup';
+@import 'popbtn';
+@import 'effect';

@@ -1,0 +1,88 @@
+.popbtn {
+  @include background-image($locPop + 'btns.png', $pos:left top);
+  display: inline-block;
+  font-size: 0;
+  cursor: pointer;
+
+  &__close {
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    @include size(33px, 33px);
+    background-position: 0 0;
+
+    &.blue {
+      background-position: -42px 0;
+    }
+
+    &.gray {
+      background-position: -84px 0;
+    }
+  }
+
+  &__entry {
+    @include size(380px, 96px);
+    background-position: 0 -43px;
+    margin-top: 55px;
+  }
+
+  &__agree-detail {
+    @include size(226px, 84px);
+    background-position: 0 -151px;
+  }
+
+  &__complete {
+    @include size(380px, 96px);
+    background-position: 0 -245px;
+    margin-top: 70px;
+  }
+
+  &__return {
+    @include size(202px, 110px);
+    background-position: 0 -341px;
+    margin-right: 40px;
+  }
+
+  &__confirm {
+    @include size(202px, 110px);
+    background-position: -242px -341px;
+  }
+
+  &__no {
+    @include size(202px, 110px);
+    background-position: 0 -450px;
+    margin-right: 40px;
+  }
+
+  &__yes {
+    @include size(202px, 110px);
+    background-position: -242px -450px;
+  }
+
+  &__thank {
+    @include size(380px, 96px);
+    background-position: 0 -567px;
+  }
+
+  &__promise {
+    @include size(380px, 96px);
+    background-position: 0 -673px;
+  }
+
+  &__download {
+    @include size(241px, 98px);
+    background-position: 0 -779px;
+    margin-right: 20px;
+  }
+
+  &__kakao {
+    @include size(241px, 98px);
+    background-position: -258px -779px;
+  }
+
+  &__giftShow {
+    @include size(498px, 97px);
+    background-position: 0 -897px;
+    margin-top: 22px;
+  }
+}

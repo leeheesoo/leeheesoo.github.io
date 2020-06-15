@@ -342,35 +342,35 @@ var consultationMixin = {
       this.currentStep = step;
       var el = $('div.step' + step);
       if (el.is('.is-show')) {
+        console.log('11')
         // 현재 step만 hide처리
         el.removeClass('is-show');
       } else {
         // step별 처리 방법
         var self = this;
-        // heeok / 20190208 / 모바일에서 다음 스텝 넘어갈때 화면 위로 올림
         if (self.onArteondriving && deviceKind == 'm') {
           utils.scrollTop();
         }
-        switch (step) {
-          case 1:
-            break;
-          case 2:
-            if (self.user.inter_trim == null || self.user.inter_trim_name == null) {
-              self.showPopByTestDriving('시승신청 트림을 선택해 주세요');
-              return;
-            }
-            if (self.user.inter_color == null || self.user.inter_color_name == null) {
-              self.showPopByTestDriving('시승신청 색상을 선택해 주세요');
-              return;
-            }
-            loadJsFile('https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=' + (deviceKind == 'm' ? '11302' : '11295'))
-            break;
-          case 3:
-            loadJsFile('https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=' + (deviceKind == 'm' ? '11305' : '11298'))
-            break;
-          default:
-            return;
-        }
+        // switch (step) {
+        //   case 1:
+        //     break;
+        //   case 2:
+        //     if (self.user.inter_trim == null || self.user.inter_trim_name == null) {
+        //       self.showPopByTestDriving('시승신청 트림을 선택해 주세요');
+        //       return;
+        //     }
+        //     if (self.user.inter_color == null || self.user.inter_color_name == null) {
+        //       self.showPopByTestDriving('시승신청 색상을 선택해 주세요');
+        //       return;
+        //     }
+        //     loadJsFile('https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=' + (deviceKind == 'm' ? '11302' : '11295'))
+        //     break;
+        //   case 3:
+        //     loadJsFile('https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=' + (deviceKind == 'm' ? '11305' : '11298'))
+        //     break;
+        //   default:
+        //     return;
+        // }
         // 모든 step을 hide처리 후 현재 step만 show처리
         $('div.step').removeClass('is-show');
         el.addClass('is-show');

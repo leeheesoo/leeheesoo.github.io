@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'CookieRunOTF-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/CookieRunOTF-Bold00.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$width-max: 640px;
+
+$loc: 'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/';
+$locPop :'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/';
+
+
+$font: 'CookieRunOTF-Bold',
+'Nanum Barun Gothic',
+'Malgun Gothic',
+sans-serif;

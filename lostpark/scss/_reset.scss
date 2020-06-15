@@ -1,0 +1,65 @@
+// @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+:root {
+  font-size: 62.5%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+ul,
+dl,
+p,
+figure,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+span,
+img,
+button,
+label,
+input {
+  vertical-align: top;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  box-shadow: none;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: top;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select,
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+}

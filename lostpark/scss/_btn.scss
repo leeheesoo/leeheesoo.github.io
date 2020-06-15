@@ -1,0 +1,60 @@
+.btn {
+  @include background-image($loc + 'btns.png', $pos:left top);
+  display: inline-block;
+  font-size: 0;
+  cursor: pointer;
+
+  &__missionStart {
+    @include size(488px, 108px);
+    background-position: 0 0;
+    margin-top: 980px;
+  }
+
+  &__logout {
+    @include size(329px, 108px);
+    background-position: 0 -120px;
+    margin-right: 25px;
+  }
+
+  &__gift {
+    @include size(209px, 108px);
+    background-position: -353px -120px;
+  }
+
+  &__vrLanding {
+    @include size(488px, 108px);
+    background-position: 0 -240px;
+    position: absolute;
+    @include center();
+    bottom: 60px;
+  }
+
+  &__bookBuy {
+    @include size(488px, 108px);
+    background-position: 0 -357px;
+    position: absolute;
+    @include center();
+    bottom: 65px;
+  }
+
+  &__missionMore {
+    @include size(580px, 64px);
+    background-position: 0 -476px;
+    bottom: 10px;
+    z-index: 1;
+  }
+
+  &__missionPrev {
+    @include size(580px, 60px);
+    background-position: 0 -551px;
+    top: 0;
+  }
+
+  &__mission--start {
+    @include size(159px, 80px);
+    background-position: 0 -622px;
+    position: absolute;
+    right: 28px;
+    top: 13px;
+  }
+}

@@ -1,9 +1,9 @@
-// heeok / 2019-02-19 / modify / 제원정보 mixin, data 추가
+
 var specMixin = {
   data: {
     specInfo: null
   },
-  // heeok / 2019-02-11 / 제원정보에서 사용하는 filter
+
 
   filters: {
     optionDesc: function (str) {
@@ -15,11 +15,6 @@ var specMixin = {
   // =========================================
   created: function () {
     this.specInfo = carSpec;
-  },
-  mounted: function () {
-    // ?? ======== 문제없으면 코드 제거
-    // if (deviceKind === 'm') tabsUtil.setUI('spec');
-    // =========================================
   }
 };
 

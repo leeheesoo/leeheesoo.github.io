@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout/event-mobile" class="no-js">
+
+<head>
+  <title>U+5G 멸종동물 공원 모바일 실천 프로그램</title>
+  <meta content="width=640, user-scalable=no" name="viewport">
+  <meta property="og:title" content="U+5G 멸종동물 공원 모바일 실천 프로그램" />
+  <meta property="og:description" content="멸종동물 친구들을 지킬 환경 보호 미션 완료하고 선물 받으세요!" />
+  <meta property="og:url" content="https://events.uplus.co.kr/lostanimalpark" />
+  <meta property="og:image" content="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/sns/share.jpg" />
+</head>
+
+  <link rel="stylesheet" href="../vendor/swiper/swiper.min.css">
+  <link rel="stylesheet" href="css/style.m.min.css">
+
+<body>
+  <div class="wrap" id="app" v-cloak>
+    <!-- motion -->
+    <section class="motionWrap">
+      <h1 class="logo"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/logo.png" alt="lg u+"></h1>
+
+      <div class="motionWrap__arrow-bottom floating"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/arrow-down.png" alt="아래로 내려보기"></div>
+
+      <span class="leaf leaf1"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/leaf1.png" alt=""></span>
+      <span class="leaf leaf2"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/leaf2.png" alt=""></span>
+      <span class="leaf leaf3"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/leaf3.png" alt=""></span>
+
+      <span class="tree tree-left"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/tree-left.png" alt=""></span>
+      <span class="tree tree-right"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/tree-right.png" alt=""></span>
+
+      <span class="talk talk1 digit"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/talk1.png" alt="친구야 들리니?"></span>
+      <span class="talk talk2 digit"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/talk2.png" alt="집을 잃어버렸어.."></span>
+      <span class="talk talk3 digit"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/talk3.png" alt="나를 도와줘"></span>
+      <span class="talk talk4 digit"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/talk4.png" alt="우릴 지켜줘!"></span>
+
+      <span class="forest__trigger"></span>
+      <span class="forest forest1"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/forest1.png" alt=""></span>
+      <span class="forest forest2"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/forest2.png" alt=""></span>
+
+      <span class="earthGo floating">
+        <img class="earthGo__txt" src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/more-txt.png" alt="">
+        <img class="earthGo__arrow " src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/more-arrow.png" alt="">
+      </span>
+    </section>
+
+    <!-- event 안내 -->
+    <section class="eventMain">
+      <div class="a11y-hidden">
+        <h2>멸종동물공원</h2>
+        <p>멸종동물 공원에 사는 동물 친구들을 지켜줄 환경 보호 미션을 완료하고 선물 받아가세요!</p>
+        <dl>
+          <dt>이벤트기간</dt>
+          <dd>2019.12.2(월)~12.22(일)</dd>
+          <dt>당첨자 발표</dt>
+          <dd>2019.12.10(화),12.17(화),12.24(화))</dd>
+        </dl>
+        <p>안녕친구?</p>
+        <p>나를 도와 멸종동물 공원에 사는 친구들을 도와줄래?</p>
+        <p>7일동안 매일 미션을 받아 와뇰하면 지구 지킴이 기념 선물을줄게!</p>
+        <p>그럼, 지구 지킴이가 될 준비 됐어?</p>
+      </div>
+
+      <button class="btn btn__missionStart" @click="cookieCheck()">미션시작</button>
+    </section>
+
+    <!-- event 참여 -->
+    <section class="missionCheck" id="missionCheck">
+      <h3><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/tl-missionCheck.png" alt="지구를 지킬 7개의 미션은?"></h3>
+
+      <div class="missionCheck__box">
+        <div class="missionCheck__header">
+
+            <p class="missionCheck__header--bigTxt" v-if="userToday == 8"><span>{{userModel.name}} 친구</span> 미션 완료</p>
+            <p v-else class="missionCheck__header--bigTxt"><span>{{userModel.name}} 친구</span> 미션 진행 중</p>
+        </div>
+        <div class="missionCheck__body">
+          <button type="button" v-if="listMove == 'top'" class="btn btn__missionMore" @click="listMove = 'bottom'">미션 더 보기</button>
+          <button type="button" v-else class="btn btn__missionPrev" @click="listMove = 'top'">이전 미션 보기</button>
+
+          <ul class="visitCheck__list" :class="[listMove =='top' ? 'top' : 'bottom']">
+            <li v-for="(quiz,idx) in quizData">
+              <p>{{quiz.quizMainText}}</p>
+              <button type="button" class="btn btn__mission--start" @click="openPop('reply')" v-show="!isClose">{{idx + 1}} 미션시작</button>
+            </li>
+          </ul>
+        </div>
+        <p class="missionCheck__notice"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/board-notice.png" alt="미션은 하루에 한번씩만 진행 가능해요!"></p>
+      </div>
+
+      <div class="btn__wrap">
+        <button type="button" class="btn btn__logout" @click="openPop('userChange')">다른 이름으로 참여(미션 기록 삭제)</button>
+        <button type="button" class="btn btn__gift" @click="openPop('gift')">선물 확인</button>
+      </div>
+
+
+      <!-- 정보미입력 안내 -->
+      <!-- <div v-if="!cookie">
+        <div class="dimmed" v-show="!isClose">
+          <div class="entry--no">
+            <div class="pop__header">
+              <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-entry-no.png" alt="7개의 미션이 친구를 기다리고 있어!" />
+            </div>
+            <div class="pop__body">
+              <div class="pop__inner">
+                <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-entry-no.png" alt="정보를 입력하고 지구를 지킬 첫번째 미션을 확인해봐!" />
+                <button type="button" @click="openPop('personal')" class="popbtn popbtn__entry">정보 입력하기</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <span class="missionGo" @click="boardMove()">
+        <img class="missionGo__txt" src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/mission-txt.png" alt="">
+        <img class="missionGo__arrow floating " src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/mission-arrow.png" alt="">
+      </span>
+    </section>
+
+    <!-- vr공원이란? :: slider -->
+    <section class="vr">
+      <!-- Slider-->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide01 on">
+            <span class="slide-animal tossingCenter"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide00-animal.png" alt=""></span>
+            <span class="slide-talk"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide00-talk.png" alt=""></span>
+          </div>
+          <div class="swiper-slide slide02">
+            <span class="slide-animal tossing"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide01-animal.png" alt=""></span>
+            <span class="slide-talk"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide01-talk.png" alt=""></span>
+          </div>
+          <div class="swiper-slide slide03">
+            <span class="slide-animal tossingCenter"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide02-animal.png" alt=""></span>
+            <span class="slide-talk"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide02-talk.png" alt=""></span>
+          </div>
+          <div class="swiper-slide slide04">
+            <span class="slide-animal tossingCenter"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide03-animal.png" alt=""></span>
+            <span class="slide-talk"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide03-talk.png" alt=""></span>
+          </div>
+          <div class="swiper-slide slide00">
+            <span class="slide-animal tossingCenter"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide04-animal.png" alt=""></span>
+            <span class="slide-talk"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/slide04-talk.png" alt=""></span>
+          </div>
+        </div>
+        <div class="vr__arrow"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/m/arrow-left.png" alt="밀어서보기"></div>
+        <div class="pagination"></div>
+      </div>
+
+      <a href="https://youtu.be/R7mR8O2qMuQ" target="_blank" class="btn btn__vrLanding">vr멸종동물 공원이란?</a>
+    </section>
+
+    <!-- 팝업북 사러가기 -->
+    <section class="popupBook">
+      <div class="a11y-hidden">
+        <h3>팝업북 속에서도 멸종동물 공원 친구들을 만나요!</h3>
+        <p>팝업북 판매 수입금의 일부는 wwf에 기부되어 사라져가는 멸종동물 보호를 위해 사용됩니다.</p>
+      </div>
+      <a href="https://tumblbug.com/lostanimalpark_book" class="btn btn__bookBuy" target="_blank">팝업북 구매하고 기부하기</a>
+    </section>
+
+    <footer>
+      <div class="a11y-hidden">
+        <h4>유의사항</h4>
+        <ul>
+          <li>본 이벤트는 lg유플러스가 wwf와 협업해 멸종 위기 동물 및 환경 보호 교육을 목적으로 진행하는 이벤트입니다.</li>
+          <li>환경보호 실천 교육을 위한 어린이 대상 이벤트로 아이 개인 휴대폰이 있는 경우 아이의 휴대폰으로 참여하는 것을 권장합니다.</li>
+          <li>미션 달성 체크는 번호 당 1일 1히만 가능하며 7일이상 방문하여야 경품 응모 자격이 주어집니다.</li>
+          <li>이벤트 경품 당첨자는 매주 화요일(12/10,12/17,12/24)개별 연락 드릴 예정이며, 당첨 상품은 배송 정보 수집 이후 순차적으로 배송 될 예정입니다.</li>
+          <li>잘못된 개인 정보 입력으로 인해 당첨자에게 연락이 불가하거나 경품이 반송된 경우 재발송되지 않으며 당사에서 책임지지 않습니다.</li>
+          <li>본 이벤트는 당사 사정에 의하여 변경 및 조기 종료될 수 있습니다.</li>
+          <li>이벤트 관련 문의사항은 lostanimalpark@mz.co.kr로 문의하시기 바랍니다.</li>
+        </ul>
+      </div>
+    </footer>
+
+      <!-- popup -->
+  <!-- dimmed -->
+  <div class="dimmed" v-show="dimmed"></div>
+
+  <!-- 개인정보 입력 -->
+  <div class="pop personal" v-show="currentPopup === 'personal'">
+    <div class="pop__header">
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-personal.png" alt="개인 정보 입력" />
+    </div>
+    <div class="pop__body">
+      <div class="personal__tit">
+        <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-personal.png" alt="안녕! 친구! 나는 마코라고 해~" />
+        <form action="" @submit.prevent>
+          <dl>
+            <dt>
+              <label for="name" class="name"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-name.png" alt="이름" /></label>
+            </dt>
+            <dd class="inputName">
+              <input id="name" type="text" v-model="userModel.name" maxlength="4" />
+              <p class="inputName__notice">
+                <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-nameNotice.png" alt="" />
+              </p>
+            </dd>
+            <dt>
+              <label for="mobile1" class="mobile1"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-phone.png" alt="연락처" /></label>
+            </dt>
+            <dd class="inputPhone1">
+              <input id="mobile1" type="tel" v-model="userModel.mobile" placeholder="'-' 없이 입력해 주세요." maxlength="11" />
+            </dd>
+
+            <dt class="parents-dt">
+              <label for="mobile2" class="mobile2"><img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-phone2.png" alt="비상연락처(부모님번호)" /></label>
+            </dt>
+            <dd class="inputPhone2">
+              <input id="mobile2" type="tel" v-model="userModel.parentMobile" placeholder="'-' 없이 입력해 주세요." maxlength="11" />
+            </dd>
+          </dl>
+          <ul class="personal__parents">
+            <li>
+              <label for="mom">
+                <input type="radio" id="mom" name="parents" value="M" v-model="userModel.parent" />
+                <span></span>
+                <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-mom.png" alt="엄마" />
+              </label>
+            </li>
+            <li>
+              <label for="dad">
+                <input type="radio" id="dad" name="parents" value="F" v-model="userModel.parent" />
+                <span></span>
+                <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-dad.png" alt="아빠" />
+              </label>
+            </li>
+            <li>
+              <label for="my">
+                <input type="radio" id="my" name="parents" value="P" v-model="userModel.parent" @click="myMobileCheck" />
+                <span></span>
+                <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-my.png" alt="본인" />
+              </label>
+            </li>
+          </ul>
+          <div class="personal__agree">
+            <p>
+              <label for="agree1">
+                <input type="checkbox" id="agree1" name="agree1" value="true" v-model="userModel.agree" />
+                <span></span>
+
+                <img class="personal__agree-txt" src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/txt-agree.png" alt="개인정보 수집 및 이용에 대한 동의" />
+              </label>
+              <button type="button" class="popbtn popbtn__agree-detail" @click="openPop('agree')">
+                자세히보기
+              </button>
+            </p>
+          </div>
+          <button type="button" class="popbtn popbtn__complete" @click="userModelApi()"></button>
+        </form>
+      </div>
+    </div>
+    <div class="popbtn__wrap">
+      <button type="button" @click="closePop()" class="popbtn popbtn__close">닫기</button>
+    </div>
+  </div>
+
+  <!-- 정보동의안내 팝업 -->
+  <div class="pop agree" v-show="currentPopup === 'agree'">
+    <div class="pop__header">
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-agree.png" alt="개인정보 수집,취급 및 위탁 동의 안내" />
+    </div>
+    <div class="pop__body">
+      <div class="pop__inner">
+        <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-agree.png" alt="정보를 입력하고 지구를 지킬 첫번째 미션을 확인해봐!" />
+      </div>
+    </div>
+    <button type="button" @click="openPop('personal')" class="popbtn popbtn__close">닫기</button>
+  </div>
+
+  <!-- 다른이름으로 참여 -->
+  <div class="pop userChange" v-show="currentPopup === 'userChange'">
+    <div class="pop__header">
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-userChange.png" alt="다른 이름으로 참여" />
+    </div>
+    <div class="pop__body">
+      <div class="pop__inner">
+        <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-userChange.png" alt="동일한 정보로 참여할 경우 지금까지 완료한 미션은 유지됩니다." />
+
+        <div class="popbtn__wrap">
+          <button type="button" class="popbtn popbtn__return" @click="closePop()">취소</button>
+          <button type="button" class="popbtn popbtn__confirm" @click="cookieRemove()">확인</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" @click="closePop()" class="popbtn popbtn__close gray">닫기</button>
+  </div>
+
+  <!-- 미션확인 : yes /no -->
+  <div class="pop reply" v-show="currentPopup === 'reply'">
+    <div class="pop__header">
+      <img :src="'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-reply'+userToday+'.png'" alt="멸종동물공원 미션확인" />
+    </div>
+    <div class="pop__body">
+      <div class="pop__inner">
+        <img :src="'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-reply'+userToday+'.png'" alt="" />
+
+        <div class="popbtn__wrap">
+          <button type="button" class="popbtn popbtn__no" @click="resultBoard('N')">아니오</button>
+          <button type="button" class="popbtn popbtn__yes" @click="resultBoard('Y')">네</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" @click="closePop()" class="popbtn popbtn__close">닫기</button>
+  </div>
+
+  <!-- 미션응답 결과 -->
+  <div class="pop result" v-show="currentPopup === 'result'">
+    <div class="pop__header">
+      <!-- 성공 -->
+      <img v-if="userAnswer == 'Y'" src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-success.png" alt="멸종동물공원 미션성공" />
+      <!-- 실패 -->
+      <img v-else src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-fail.png" alt="멸종동물공원 미션실패" />
+    </div>
+    <div class="pop__body">
+      <div class="pop__inner">
+        <!-- 성공 -->
+        <div v-if="userAnswer == 'Y'">
+          <img :src="'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-success'+randomNumber+'.png'" alt="" />
+          <button v-if="userToday == 8" type="button" @click="closePop('end')" class="popbtn popbtn__thank">나도 고마워! 끝</button>
+          <button v-else type="button" @click="closePop()" class="popbtn popbtn__thank">나도 고마워!</button>
+        </div>
+        <!-- 실패 -->
+        <div v-else>
+          <img :src="'https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-fail'+userToday+'.png'" alt="" />
+          <button type=" button" @click="closePop()" class="popbtn popbtn__promise">약속 지키고 올게!</button>
+        </div>
+      </div>
+    </div>
+    <button v-if="userToday == 8" type="button" @click="closePop('end')" class="popbtn popbtn__close">닫기 끝</button>
+    <button v-else type="button" @click="closePop()" class="popbtn popbtn__close">닫기</button>
+  </div>
+
+  <!-- 미션선물 -->
+  <div class="pop gift" v-show="currentPopup === 'gift'">
+    <div class="pop__header">
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-gift.png" alt="마코의 깜짝선물">
+    </div>
+    <div class="pop__body">
+      <div class="a11y-hidden">
+        <p>7개의 미션을 모두 완료한 친구를 위해 준비한 깜짝 선물!</p>
+        <h4>선착순선물</h4>
+        <ul>
+          <li>멸종위기동물 팔찌(2개) 미션완료 친구 선착순 300명 증정!</li>
+        </ul>
+
+        <h4>추첨선물 - 선착순 선물과 중복 당첨 가능!</h4>
+        <ul>
+          <li>멸종동물 공원 팝업북 - 50명</li>
+          <li>친환경 전자노트 - 20명</li>
+          <li>향균 TPU 식탁매트 - 15명</li>
+          <li>캔틴 보냉 보온병 - 15명</li>
+
+        </ul>
+        <p>매주 화요일마다(12/10,12/17,12/24)당첨자에 한해 개별 연락 예정입니다.</p>
+      </div>
+
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-gift.png" alt="마코의 깜짝선물">
+      <button type="button" class="popbtn popbtn__confirm" @click="closePop()">확인</button>
+    </div>
+    <button type="button" @click="closePop('scrollGo')" class="popbtn popbtn__close">닫기</button>
+  </div>
+
+  <!-- 미션완료&카드저장 -->
+  <div class="pop missionEnd" v-show="currentPopup === 'missionEnd'">
+    <div class="pop__header">
+      <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/tl-missionEnd.png" alt="멸종동물공원 미션완료">
+    </div>
+    <div class="pop__body">
+      <div class="pop__inner">
+        <img src="https://lguplus-event.s3.amazonaws.com/static/lostanimalpark/image/popup/con-missionEnd.png" alt="">
+        <div class="popbtn__wrap">
+          <a href="/lostanimalpark/image/card.png" download class="popbtn popbtn__download">이미지 저장</a>
+          <button type="button" class="popbtn popbtn__kakao" @click="shareKakaotalk()">카카오톡 공유</button>
+
+        </div>
+        <button type="button" class="popbtn popbtn__giftShow" @click="openPop('gift')">깜짝 선물 당첨 안내</button>
+      </div>
+    </div>
+    <button type="button" @click="closePop('scrollGo')" class="popbtn popbtn__close blue">닫기</button>
+  </div>
+
+    </div>
+  </div>
+
+
+
+
+  <script type="text/javascript" src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+  <script type="text/javascript">
+    // kakao api setting
+    Kakao.init('e19917bac451ab82c155ae1e141309d5');
+  </script>
+  <script>
+
+    var isClose = false;
+
+  </script>
+  <script src="/vendor/jquery/jquery-1.10.2.js"></script>
+  <script src="/vendor/vue/vue.min.js"></script>
+  <script src="/vendor/swiper/swiper.js"></script>
+  <script src="js/ScrollMagic/ScrollMagic.min.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/static-data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+
+</html>
