@@ -1,5 +1,5 @@
-var imgUrlCal = 'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/pc/calendar-btn-light.png';
-var staticImageUrl = 'https://vwkr-touareg.s3.amazonaws.com/static/launching/images/' + deviceKind + '/';
+var imgUrlCal = 'images/' + deviceKind + '/calendar-btn-light.png';
+var staticImageUrl = '../images/pc/' + deviceKind + '/';
 
 if (deviceKind == 'pc') {
   var userJointype = 'WEB';
@@ -134,89 +134,89 @@ var consultationMixin = {
     // form validate
     var self = this;
     $(function () {
-      $.validator.setDefaults({
-        onkeyup: false,
-        onclick: false,
-        onfocusout: false,
-        showErrors: function (errorMap, errorList) {
-          // if (this.numberOfInvalids() && errorList != '') {
-          //   if (siteName === 'testDriving' || siteName === 'financial') app.showPopByTestDriving(errorList[0].message);
-          //   else if (siteName === 'launching') vwArteon.showPopByTestDriving(errorList[0].message);
-          //   else if (siteName === 'showroom') app.showPopByTestDriving(errorList[0].message);
-          //   $(errorList[0].element).focus();
-          // }
+      // $.validator.setDefaults({
+      //   onkeyup: false,
+      //   onclick: false,
+      //   onfocusout: false,
+      //   showErrors: function (errorMap, errorList) {
+      //     // if (this.numberOfInvalids() && errorList != '') {
+      //     //   if (siteName === 'testDriving' || siteName === 'financial') app.showPopByTestDriving(errorList[0].message);
+      //     //   else if (siteName === 'launching') vwArteon.showPopByTestDriving(errorList[0].message);
+      //     //   else if (siteName === 'showroom') app.showPopByTestDriving(errorList[0].message);
+      //     //   $(errorList[0].element).focus();
+      //     // }
 
-          if (this.numberOfInvalids() && errorList != '') {
+      //     if (this.numberOfInvalids() && errorList != '') {
 
-            if (this.numberOfInvalids()) {
-              if (deviceKind == 'pc') {
-                self.showPopByTestDriving(errorList[0].message)
-              } else {
-                alert(errorList[0].message)
-              }
+      //       if (this.numberOfInvalids()) {
+      //         if (deviceKind == 'pc') {
+      //           self.showPopByTestDriving(errorList[0].message)
+      //         } else {
+      //           alert(errorList[0].message)
+      //         }
 
-              //alert();
-            }
-            // $(errorList[0].element).focus();
-          }
-        }
-      });
+      //         //alert();
+      //       }
+      //       // $(errorList[0].element).focus();
+      //     }
+      //   }
+      // });
 
-      $('#step2Form').validate({
-        rules: {
-          site: 'required',
-          name: 'required',
-          birth: 'required',
-          phone: {
-            required: true,
-            minlength: 10,
-            maxlength: 11
-          },
-          //									email: 'required',
-          sido: 'required',
-          gugun: 'required',
-          showroom: 'required',
-          purtime: 'required',
-          coultype: {
-            required: function () {
-              return $('input[name=seletedType]:checked').val() == 'consulting';
-            }
-          },
-          hopedate: {
-            required: function () {
-              return $('input[name=seletedType]:checked').val() == 'drive';
-            }
-          }
-        },
-        messages: {
-          site: '시승/상담을 선택해주세요',
-          name: '신청자 성명을 입력해주세요',
-          birth: '출생 년도를 선택해주세요',
-          phone: {
-            required: '연락처를 입력해주세요',
-            minlength: '연락처를 정확히 입력해주세요',
-            maxlength: '연락처를 정확히 입력해주세요'
-          },
-          //									carModel : ' 입력해주세요',
-          sido: '지역을 선택해주세요',
-          gugun: '시군구를 선택해주세요',
-          showroom: '전시장을 선택해주세요',
-          purtime: '구매시기를 선택해주세요',
-          coultype: {
-            required: '상담유형을 선택해주세요'
-          },
-          hopedate: {
-            required: '시승 희망일을 입력해주세요'
-          }
-        },
-        submitHandler: function (e) {
-          if (self.user.certchkD != 'Y') {
-            self.showPopByTestDriving('인증 완료 후 참여해주세요.');
-            return;
-          }
-          self.stepToggle(3);
-        }
-      });
+      // $('#step2Form').validate({
+      //   rules: {
+      //     site: 'required',
+      //     name: 'required',
+      //     birth: 'required',
+      //     phone: {
+      //       required: true,
+      //       minlength: 10,
+      //       maxlength: 11
+      //     },
+      //     //									email: 'required',
+      //     sido: 'required',
+      //     gugun: 'required',
+      //     showroom: 'required',
+      //     purtime: 'required',
+      //     coultype: {
+      //       required: function () {
+      //         return $('input[name=seletedType]:checked').val() == 'consulting';
+      //       }
+      //     },
+      //     hopedate: {
+      //       required: function () {
+      //         return $('input[name=seletedType]:checked').val() == 'drive';
+      //       }
+      //     }
+      //   },
+      //   messages: {
+      //     site: '시승/상담을 선택해주세요',
+      //     name: '신청자 성명을 입력해주세요',
+      //     birth: '출생 년도를 선택해주세요',
+      //     phone: {
+      //       required: '연락처를 입력해주세요',
+      //       minlength: '연락처를 정확히 입력해주세요',
+      //       maxlength: '연락처를 정확히 입력해주세요'
+      //     },
+      //     //									carModel : ' 입력해주세요',
+      //     sido: '지역을 선택해주세요',
+      //     gugun: '시군구를 선택해주세요',
+      //     showroom: '전시장을 선택해주세요',
+      //     purtime: '구매시기를 선택해주세요',
+      //     coultype: {
+      //       required: '상담유형을 선택해주세요'
+      //     },
+      //     hopedate: {
+      //       required: '시승 희망일을 입력해주세요'
+      //     }
+      //   },
+      //   submitHandler: function (e) {
+      //     if (self.user.certchkD != 'Y') {
+      //       self.showPopByTestDriving('인증 완료 후 참여해주세요.');
+      //       return;
+      //     }
+      //     self.stepToggle(3);
+      //   }
+      // });
 
       // datepicker
       $('#driveday').datepicker({
@@ -477,37 +477,37 @@ var consultationMixin = {
           self.afterApply = null;
           self.afterApply = function () {
             loadJsFile('https://i39.icast-ad.com/track?ccd=4339&mcd=01040601&pcd=' + (deviceKind == 'm' ? '11307' : '11300'))
-		    self.user.inter_car = 12;
-		    self.user.inter_name = 'Touareg';
-		    self.user.jointype = 'WEB';
-		    self.user.site = 'MICROSITE';
-		    self.user.inter_trim_name = '3.0 TDI Premium',
-		    self.user.inter_color = 1,
-		    self.user.inter_color_name = 'Pure White',
-			self.user.name = null;
-			self.user.birth = '1980';
-			self.user.phone = null;
-			self.user.sendchkD = 'N';
-			self.user.certchkD = 'N';
-			self.user.carModel = '';
-			self.user.showroom = null;
-			self.user.showroomname = '';
-			self.stores.sido = '';
-			self.stores.gugun = '';
-			self.user.com_idx = null;
-			self.user.purtime = null;
-			self.user.policy_check0 = 'N';
-			self.user.policy_check1 = 'N';
-			self.user.policy_check2 = 'N';
-			self.user.policy_check3 = 'N';
-			self.user.policy_check4 = 'N';
-			self.user.policy_check5 = 'N';
-			$('#driveday').val('');
-			self.user.hopedate = null;
-			self.user.coultype = null;
-			$('.policy-check input').prop('checked', false);
-			self.seletedType = 'drive';
-	        self.stepToggle(1);
+            self.user.inter_car = 12;
+            self.user.inter_name = 'Touareg';
+            self.user.jointype = 'WEB';
+            self.user.site = 'MICROSITE';
+            self.user.inter_trim_name = '3.0 TDI Premium',
+              self.user.inter_color = 1,
+              self.user.inter_color_name = 'Pure White',
+              self.user.name = null;
+            self.user.birth = '1980';
+            self.user.phone = null;
+            self.user.sendchkD = 'N';
+            self.user.certchkD = 'N';
+            self.user.carModel = '';
+            self.user.showroom = null;
+            self.user.showroomname = '';
+            self.stores.sido = '';
+            self.stores.gugun = '';
+            self.user.com_idx = null;
+            self.user.purtime = null;
+            self.user.policy_check0 = 'N';
+            self.user.policy_check1 = 'N';
+            self.user.policy_check2 = 'N';
+            self.user.policy_check3 = 'N';
+            self.user.policy_check4 = 'N';
+            self.user.policy_check5 = 'N';
+            $('#driveday').val('');
+            self.user.hopedate = null;
+            self.user.coultype = null;
+            $('.policy-check input').prop('checked', false);
+            self.seletedType = 'drive';
+            self.stepToggle(1);
           };
           if (self.seletedType == 'consulting') {
             self.showPopByTestDriving('상담신청이 완료되었습니다. 가까운 전시장을 통해 빠른 시일 내 연락 드리겠습니다.');

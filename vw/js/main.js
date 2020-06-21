@@ -105,11 +105,11 @@ var app = new Vue({
       var $cover = $('#' + cover);
       var vid = document.getElementById(event.target.nextElementSibling.id);
       if (vid.paused == true) {
-        vid.play();
+        // vid.play();
         $cover.addClass('off')
       } else {
         $cover.addClass('off')
-        vid.pause();
+        // vid.pause();
       }
 
 
@@ -167,7 +167,7 @@ var app = new Vue({
 
             if (currentNum != 0) {
               var vid = document.getElementById('interiorPopMov');
-              vid.pause();
+              //vid.pause();
             }
           }
         }
@@ -294,7 +294,7 @@ var app = new Vue({
         } else if (currentSection !== 'interior') {
           vid = document.getElementById('interiorMov');
         }
-        vid.pause();
+        //vid.pause();
       } else {
         //mobile youtube
         if (currentSection !== 'exterior') {

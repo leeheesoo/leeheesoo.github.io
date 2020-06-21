@@ -43,7 +43,7 @@ video {
 .driving_videoWrap {
   .cover {
     height: 700px;
-    background: url($image-url+'driving_video_all.png') no-repeat;
+    //background: url($image-url+'driving_video_all.png') no-repeat;
   }
 }
 
@@ -53,7 +53,7 @@ video {
   background-position: 0 top;
   z-index: 1;
   height: 700px;
-  background: url($image-url+'driving_video_all.png') no-repeat;
+  //background: url($image-url+'driving_video_all.png') no-repeat;
 
   &.off {
     display: none;
@@ -408,11 +408,11 @@ kv
       float: left;
       width: 60px;
       height: 170px;
-      background-position-x: -70px;
+      background-position: 20px 69px;
     }
 
     &.is-active .btn__tvc-close {
-      background-position: 0 0;
+      background-position: -96px 70px;
     }
 
     &-box {
@@ -1035,11 +1035,11 @@ kvLook
       height: 100%;
       z-index: 10;
 
-      @for $i from 1 through 7 {
-        &#{$i} {
-          @include background('technology'+ $i + '.jpg');
-        }
-      }
+      // @for $i from 1 through 7 {
+      //   &#{$i} {
+      //     @include background('technology'+ $i + '.jpg');
+      //   }
+      // }
 
       button {
         font-size: 30px;
